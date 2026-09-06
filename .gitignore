@@ -2,4 +2,7 @@ node_modules
 dist
 .DS_Store
 *.local
+
+# Generiert von scripts/build-content.mjs
 public/stories/*.json
+public/sfx/index.json

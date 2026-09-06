@@ -50,9 +50,23 @@ Erkenner melden ein Wort erst 0,3–1 Sekunde später. Deshalb hat jeder Cue ein
 
 ### Geräusche
 
-Alle Klänge werden zur Laufzeit synthetisiert (`src/engine/sounds.ts`) – null
-Bytes an Assets. Sollen später echte Aufnahmen rein, wird nur der Registry-
-Eintrag getauscht; die Geschichten referenzieren bloß den Namen.
+Zwei Wege, und die App nimmt automatisch den besseren: Liegt unter `public/sfx/`
+eine Datei mit passendem Namen, wird sie abgespielt. Sonst synthetisiert
+`src/engine/sounds.ts` den Klang zur Laufzeit.
+
+Damit läuft die App ohne ein einziges Byte an Audio-Assets, und trotzdem kann
+jeder Klang einzeln durch eine echte Aufnahme ersetzt werden, ohne dass eine
+Geschichte angefasst werden muss – die referenzieren nur den Namen.
+
+Ehrliche Einschätzung, wo der Synthesizer taugt und wo nicht:
+
+- **Brauchbar:** Wind, Grillen, Schritte, Poltern, Türknarren, Glasklirren,
+  Schnarchen. Das ist im Kern gefiltertes Rauschen, und das kann Web Audio gut.
+- **Schwach:** alle Tiere. Ein Esel ist ein Kehlkopf, kein Filter. Hier führt
+  kein Weg an echten Aufnahmen vorbei.
+
+Wie man Aufnahmen einsetzt und wo man sie herbekommt, steht in
+[`public/sfx/README.md`](public/sfx/README.md).
 
 ## Geschichten schreiben
 

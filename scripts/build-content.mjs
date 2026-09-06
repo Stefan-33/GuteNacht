@@ -14,6 +14,7 @@ import { join } from 'node:path';
 
 const SRC = 'content';
 const OUT = 'public/stories';
+const SFX = 'public/sfx';
 
 const MARKER = /\{\{(sfx|amb|amb-stop):([a-zA-Z0-9_]+)((?:\|[a-z]+=[-0-9.]+)*)\}\}/g;
 
@@ -99,6 +100,32 @@ function build(raw) {
   };
 }
 
+/*
+ * Klang-Dateien einsammeln. Wer eine echte Aufnahme haben will, legt sie
+ * einfach als public/sfx/<name>.mp3 ab - der Name entscheidet, welchen
+ * synthetischen Klang sie ersetzt. Ohne dieses Verzeichnis laeuft alles
+ * weiter wie bisher, nur eben synthetisch.
+ *
+ * Das Manifest existiert, damit die App nicht blind nach fünfzehn Dateien
+ * fragen muss, von denen zwölf nicht da sind.
+ */
+const AUDIO = /\.(mp3|ogg|opus|m4a|wav|webm)$/i;
+
+async function buildSampleManifest() {
+  let entries = [];
+  try {
+    entries = await readdir(SFX);
+  } catch {
+    return 0; // Verzeichnis gibt es nicht - vollkommen in Ordnung.
+  }
+  const samples = entries
+    .filter((f) => AUDIO.test(f))
+    .map((file) => ({ name: file.replace(AUDIO, ''), file }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  await writeFile(join(SFX, 'index.json'), JSON.stringify(samples), 'utf8');
+  return samples.length;
+}
+
 const files = (await readdir(SRC)).filter((f) => f.endsWith('.md'));
 await mkdir(OUT, { recursive: true });
 
@@ -125,4 +152,8 @@ for (const file of files) {
 
 index.sort((a, b) => a.title.localeCompare(b.title, 'de'));
 await writeFile(join(OUT, 'index.json'), JSON.stringify(index), 'utf8');
+const sampleCount = await buildSampleManifest();
 console.log(`\n${index.length} Geschichte(n) gebaut.`);
+console.log(sampleCount > 0
+  ? `${sampleCount} echte Klang-Datei(en) gefunden - der Rest bleibt synthetisch.`
+  : 'Keine Klang-Dateien in public/sfx/ - alles synthetisch.');

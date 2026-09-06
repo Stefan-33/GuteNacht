@@ -1,7 +1,17 @@
 import { AMB, SFX } from './sounds';
 
+interface SampleEntry {
+  name: string;
+  file: string;
+}
+
 /**
  * Audio-Fassade: zwei Busse (Atmosphäre und Effekte), ein Master.
+ *
+ * Vorrang hat immer eine echte Aufnahme. Liegt unter public/sfx/ eine Datei
+ * mit passendem Namen, wird sie abgespielt; sonst springt der Synthesizer
+ * ein. Damit lässt sich die Klangwelt Stück für Stück ersetzen, ohne eine
+ * einzige Geschichte anzufassen - die referenzieren nur den Namen.
  *
  * Ducking: sobald ein Effekt spielt, geht die Atmosphäre kurz zurück.
  * Ohne das matscht ein Waldrauschen jeden Eselschrei zu.
@@ -16,10 +26,16 @@ export class AudioEngine {
   private ambBus: GainNode | null = null;
   private sfxBus: GainNode | null = null;
   private running = new Map<string, () => void>();
+  private samples = new Map<string, AudioBuffer>();
   private duckUntil = 0;
 
   get ready(): boolean {
     return this.ctx !== null && this.ctx.state === 'running';
+  }
+
+  /** Welche Klänge kommen aus echten Aufnahmen? Nur für die Anzeige. */
+  get sampleNames(): string[] {
+    return [...this.samples.keys()];
   }
 
   /** Muss aus einem Klick-Handler heraus aufgerufen werden. */
@@ -38,8 +54,42 @@ export class AudioEngine {
       this.sfxBus = this.ctx.createGain();
       this.sfxBus.gain.value = 1;
       this.sfxBus.connect(this.master);
+
+      await this.loadSamples();
     }
     if (this.ctx.state === 'suspended') await this.ctx.resume();
+  }
+
+  /**
+   * Lädt die echten Aufnahmen, die in public/sfx/ liegen.
+   * Fehlt das Manifest oder eine Datei, bleibt es beim Synthesizer -
+   * ein Fehler hier darf niemals das Vorlesen verhindern.
+   */
+  private async loadSamples(): Promise<void> {
+    const ctx = this.ctx;
+    if (!ctx) return;
+
+    let list: SampleEntry[];
+    try {
+      const res = await fetch('/sfx/index.json');
+      if (!res.ok) return;
+      list = await res.json();
+    } catch {
+      return;
+    }
+
+    await Promise.all(
+      list.map(async ({ name, file }) => {
+        try {
+          const res = await fetch(`/sfx/${file}`);
+          if (!res.ok) return;
+          const buffer = await ctx.decodeAudioData(await res.arrayBuffer());
+          this.samples.set(name, buffer);
+        } catch {
+          console.warn(`[audio] ${file} ließ sich nicht laden - nehme den synthetischen Klang.`);
+        }
+      }),
+    );
   }
 
   setVolume(v: number): void {
@@ -62,6 +112,21 @@ export class AudioEngine {
 
   playSfx(name: string, gain = 1): void {
     if (!this.ctx || !this.sfxBus) return;
+
+    const sample = this.samples.get(name);
+    if (sample) {
+      const g = this.ctx.createGain();
+      g.gain.value = gain;
+      g.connect(this.sfxBus);
+      const src = this.ctx.createBufferSource();
+      src.buffer = sample;
+      src.connect(g);
+      src.start(this.ctx.currentTime + 0.02);
+      src.onended = () => g.disconnect();
+      this.duck(sample.duration);
+      return;
+    }
+
     const recipe = SFX[name];
     if (!recipe) {
       console.warn(`[audio] Unbekannter Effekt: ${name}`);
@@ -72,22 +137,50 @@ export class AudioEngine {
     g.connect(this.sfxBus);
     const dur = recipe(this.ctx, g, this.ctx.currentTime + 0.02);
     this.duck(dur);
-    // Aufräumen, sobald der Effekt sicher verklungen ist.
     setTimeout(() => g.disconnect(), (dur + 1) * 1000);
   }
 
   startAmbient(name: string, gain = 0.5): void {
     if (!this.ctx || !this.ambBus) return;
     if (this.running.has(name)) return;
+
+    const ctx = this.ctx;
+    const sample = this.samples.get(name);
+
+    if (sample) {
+      // Aufnahmen als Kulisse laufen in der Schleife, ein- und ausgeblendet -
+      // ein harter Schnitt mitten im Waldrauschen fällt sofort auf.
+      const g = ctx.createGain();
+      g.gain.value = 0;
+      g.gain.linearRampToValueAtTime(gain, ctx.currentTime + 1.5);
+      g.connect(this.ambBus);
+      const src = ctx.createBufferSource();
+      src.buffer = sample;
+      src.loop = true;
+      src.connect(g);
+      src.start();
+      this.running.set(name, () => {
+        const now = ctx.currentTime;
+        g.gain.cancelScheduledValues(now);
+        g.gain.setValueAtTime(g.gain.value, now);
+        g.gain.linearRampToValueAtTime(0, now + 0.8);
+        setTimeout(() => {
+          try { src.stop(); } catch { /* schon gestoppt */ }
+          g.disconnect();
+        }, 1000);
+      });
+      return;
+    }
+
     const recipe = AMB[name];
     if (!recipe) {
       console.warn(`[audio] Unbekannte Atmosphäre: ${name}`);
       return;
     }
-    const g = this.ctx.createGain();
+    const g = ctx.createGain();
     g.gain.value = gain;
     g.connect(this.ambBus);
-    const stop = recipe(this.ctx, g);
+    const stop = recipe(ctx, g);
     this.running.set(name, () => {
       stop();
       setTimeout(() => g.disconnect(), 1500);
@@ -116,6 +209,7 @@ export class AudioEngine {
       this.master = null;
       this.ambBus = null;
       this.sfxBus = null;
+      this.samples.clear();
     }
   }
 }
