@@ -111,6 +111,33 @@ export class Aligner {
     return this.lastConfidence;
   }
 
+  /**
+   * Vorwissen über den Leseablauf, als Gewicht zwischen 0 und 1.
+   *
+   * Ohne dieses Gewicht ist eine wörtliche Wiederholung nicht auflösbar:
+   * "Sie zogen und zogen. Aber die Rübe rührte sich nicht." steht viermal
+   * gleichlautend im Text, und für die reine Wortabstimmung sind alle vier
+   * Stellen exakt gleich gut. In der Messung raste der Aligner dadurch bis
+   * zu 125 Wörter voraus, sprang zurück, und die Klänge feuerten doppelt.
+   *
+   * Aufgelöst wird es nicht über den Text, sondern über den Ablauf: Wer
+   * gerade sieben Wörter gesprochen hat, ist mit ziemlicher Sicherheit
+   * ungefähr sieben Wörter weiter - nicht fünfundzwanzig. Kandidaten weit
+   * vor dieser Erwartung werden gedämpft, Rückwärtssprünge stärker als
+   * Vorwärtssprünge. Es ist ein Gewicht, kein Verbot: Bei erdrückendem
+   * Beleg gewinnt die entfernte Stelle immer noch.
+   *
+   * Wiederholung ist bei Dreijährigen kein Randfall, sondern das
+   * Bauprinzip der Geschichten - diese Regel trägt also die halbe Bibliothek.
+   */
+  private prior(q: number, heardLength: number, lost: boolean): number {
+    const ahead = Math.max(0, q - this.position - heardLength);
+    const back = Math.max(0, this.position - q);
+    // Verirrt suchen wir bewusst weiter - dann darf das Vorwissen weniger zählen.
+    const strength = lost ? 0.4 : 1;
+    return 1 / (1 + (ahead * 0.03 + back * 0.05) * strength);
+  }
+
   /** Manuell springen - z. B. wenn der Vorleser im Text auf ein Wort tippt. */
   jumpTo(position: number): void {
     this.position = Math.max(0, Math.min(position, this.tokens.length));
@@ -166,7 +193,7 @@ export class Aligner {
         // Passt dieses Wort auf Textposition j, dann endet das Gehörte bei j+1+k.
         const q = j + 1 + k;
         if (q > this.tokens.length) continue;
-        votes.set(q, (votes.get(q) ?? 0) + w * s);
+        votes.set(q, (votes.get(q) ?? 0) + w * s * this.prior(q, tail.length, lost));
       }
     }
 

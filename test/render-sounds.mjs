@@ -19,8 +19,16 @@ const CHROME = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
 /** Wie lange jeder Klang gerendert wird (inkl. Nachhall-Fahne). */
 const LENGTHS = {
   esel: 3.0, hund_bellen: 1.4, hund_jaulen: 2.8, katze_miau: 1.8,
-  hahn_kikeriki: 2.2, tier_krach: 4.6, fenster_klirr: 1.8, tuer_knarr: 2.6,
-  schritte: 2.6, poltern: 2.4, schnarchen: 3.8, glitzern: 2.2,
+  hahn_kikeriki: 2.2, schwein_grunz: 1.6, kuh_muh: 2.4, schaf_maeh: 1.8,
+  tier_krach: 4.6, maus_piep: 1.2, loewe_bruell: 3.2, drache_brumm: 3.6,
+  eule_ruf: 2.0, moewe: 2.6, wal_ruf: 4.2,
+  gaehnen: 2.8, hau_ruck: 2.4, schluckauf: 2.0, schnarchen: 3.8,
+  schritte: 2.6, poltern: 2.4, klopfen: 1.8, plumps: 1.2, tuer_knarr: 2.6,
+  fenster_klirr: 1.8, uhr_ticken: 4.0, knabbern: 2.6, rollen: 2.6,
+  blubbern: 3.2, brutzeln: 3.0, feuer_knistern: 4.0,
+  donner: 4.4, wind_boe: 3.2, pusten: 2.4, wasser_platsch: 1.8,
+  sternenfall: 2.2, glitzern: 2.2,
+  bagger_motor: 3.6, rakete_start: 4.2, drache_feuer: 2.2,
 };
 
 /** Erwartungswerte aus der Literatur - Grundtonlage in Hertz. */
@@ -30,6 +38,18 @@ const EXPECTED = {
   hund_jaulen: [230, 450, 'Geheul, tonal'],
   katze_miau: [370, 800, 'Miau'],
   hahn_kikeriki: [400, 900, 'Hahnenschrei'],
+  schwein_grunz: [130, 400, 'Grunzen, sehr rau'],
+  kuh_muh: [90, 250, 'Muhen, tief und lang'],
+  schaf_maeh: [180, 400, 'Blöken mit Tremolo'],
+  maus_piep: [1500, 8000, 'Piepsen, sehr hoch'],
+  loewe_bruell: [40, 250, 'Löwengebrüll, erstaunlich tief'],
+  drache_brumm: [35, 220, 'Drachenbrummen (erfunden, wie ein großer Löwe)'],
+  eule_ruf: [300, 500, 'Eulenruf, fast reiner Ton'],
+  moewe: [600, 1500, 'Möwenschrei, hell und scharf'],
+  wal_ruf: [50, 250, 'Walgesang, sehr tief und lang'],
+  gaehnen: [100, 300, 'Gähnen'],
+  hau_ruck: [110, 320, 'Ächzen beim Ziehen'],
+  schluckauf: [150, 480, 'Hickser'],
 };
 
 /* ---- Messwerkzeug ------------------------------------------------- */
@@ -78,23 +98,63 @@ function loudestFrame(samples, size) {
   return best;
 }
 
-/** Grundton über Autokorrelation. */
+/**
+ * Grundton nach dem YIN-Verfahren.
+ *
+ * Die einfache Autokorrelation davor hat zweimal falsch gemeldet und mich
+ * beinahe an funktionierenden Klängen herumschrauben lassen: erst rastete
+ * sie bei stark gefilterten Signalen auf einer Formant-Resonanz ein, dann
+ * bei tiefen, rauen Signalen auf der kürzesten zugelassenen Verzögerung.
+ *
+ * YIN vermeidet beides: es misst die quadrierte Differenz statt der
+ * Ähnlichkeit, normiert sie kumulativ (das nimmt kurzen Verzögerungen den
+ * eingebauten Vorteil) und nimmt die ERSTE Verzögerung unter einer
+ * Schwelle statt der besten - dadurch fällt es nicht auf Vielfache herein.
+ */
 function pitch(samples, rate, from) {
   const size = 2048;
   const frame = samples.slice(from, from + size);
-  const minLag = Math.floor(rate / 1200);
-  const maxLag = Math.floor(rate / 60);
-  let bestLag = 0, best = 0;
-  for (let lag = minLag; lag < maxLag && lag < size / 2; lag++) {
-    let sum = 0, norm = 0;
-    for (let i = 0; i < size - lag; i++) {
-      sum += frame[i] * frame[i + lag];
-      norm += frame[i + lag] * frame[i + lag];
+  const maxLag = Math.min(Math.floor(rate / 50), size >> 1);
+  const minLag = Math.max(2, Math.floor(rate / 5000));
+
+  // Differenzfunktion
+  const d = new Float64Array(maxLag + 1);
+  for (let lag = minLag; lag <= maxLag; lag++) {
+    let sum = 0;
+    for (let i = 0; i + lag < size; i++) {
+      const diff = frame[i] - frame[i + lag];
+      sum += diff * diff;
     }
-    const score = norm > 0 ? sum / Math.sqrt(norm) : 0;
-    if (score > best) { best = score; bestLag = lag; }
+    d[lag] = sum;
   }
-  return bestLag > 0 ? rate / bestLag : 0;
+
+  // Kumulative Normierung
+  const cmnd = new Float64Array(maxLag + 1);
+  cmnd[0] = 1;
+  let running = 0;
+  for (let lag = minLag; lag <= maxLag; lag++) {
+    running += d[lag];
+    cmnd[lag] = running > 0 ? (d[lag] * (lag - minLag + 1)) / running : 1;
+  }
+
+  // Erste Verzögerung unter der Schwelle gewinnt, nicht die beste.
+  const THRESHOLD = 0.2;
+  let best = -1;
+  for (let lag = minLag + 1; lag < maxLag; lag++) {
+    if (cmnd[lag] < THRESHOLD) {
+      while (lag + 1 < maxLag && cmnd[lag + 1] < cmnd[lag]) lag++;
+      best = lag;
+      break;
+    }
+  }
+  if (best < 0) {
+    let min = Infinity;
+    for (let lag = minLag + 1; lag < maxLag; lag++) {
+      if (cmnd[lag] < min) { min = cmnd[lag]; best = lag; }
+    }
+    if (min > 0.6) return 0; // zu unsicher - das ist reines Geräusch
+  }
+  return best > 0 ? rate / best : 0;
 }
 
 /**
@@ -223,11 +283,22 @@ console.log(problems === 0
  * Pegelabgleich. Alle Effekte sollen ungefähr gleich laut sein, sonst geht
  * die Katze neben dem Esel unter. Ausgerechnet statt nach Gefühl geraten.
  */
-const TARGET = 0.75;
+/*
+ * Abgeglichen wird nach Lautheit, nicht nach Spitzenwert. Ein Ticken hat
+ * eine hohe Spitze und fast keine Energie, ein Brummen umgekehrt - gleicht
+ * man nur die Spitzen an, ist das Ticken hinterher trotzdem unhörbar.
+ * Also: RMS auf einen gemeinsamen Wert, mit der Spitze als Notbremse gegen
+ * Übersteuerung.
+ */
+const TARGET_RMS = 0.15;
+const CEILING = 0.9;
 console.log('\nVorschlag für die TRIM-Tabelle in sounds.ts:\n');
 console.log('export const TRIM: Record<string, number> = {');
 for (const r of rows) {
-  const trim = Math.min(9, Math.max(0.1, TARGET / Math.max(0.01, r.peak)));
+  const trim = Math.min(
+    9,
+    Math.max(0.15, Math.min(CEILING / Math.max(0.01, r.peak), TARGET_RMS / Math.max(0.002, r.rms))),
+  );
   console.log(`  ${r.name}: ${trim.toFixed(2)},`);
 }
 console.log('};');

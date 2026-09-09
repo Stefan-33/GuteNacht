@@ -97,6 +97,44 @@ button {
   font-size: 15px;
 }
 
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.chip {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--ink-dim);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.chip.on {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: rgba(242, 184, 85, 0.35);
+}
+
+.surprise {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  font-size: 14px;
+  color: var(--ink-dim);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.surprise:active { background: rgba(255, 255, 255, 0.08); }
+
 .story-list {
   list-style: none;
   margin: 0;

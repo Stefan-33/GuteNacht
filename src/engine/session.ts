@@ -24,6 +24,7 @@ export interface SessionUpdate {
 export class ReadingSession {
   private readonly aligner: Aligner;
   private readonly firedSfx = new Set<number>();
+  private lastPosition = 0;
   private activeAmbients = new Map<string, number>();
 
   onUpdate: ((u: SessionUpdate) => void) | null = null;
@@ -62,13 +63,26 @@ export class ReadingSession {
   }
 
   private apply(position: number, jumpedBack: boolean, confidence: number): void {
-    if (jumpedBack) {
-      // Alles hinter der neuen Position wieder scharfstellen.
+    /*
+     * Klänge hinter der neuen Position nur bei einem GROSSEN Rücksprung
+     * wieder scharfstellen.
+     *
+     * Gedacht war das für den Fall, dass jemand einen Absatz noch einmal
+     * vorliest - dann soll der Esel wieder schreien. In der Messung kam
+     * aber etwas anderes heraus: Kleine Rücksprünge sind fast immer
+     * Korrekturen der Spracherkennung, keine Wiederholungen. Wer sie als
+     * Wiederholung behandelt, lässt denselben Klang zweimal feuern - in
+     * einer Geschichte bis zu elfmal. Das hört man sofort, und es ist
+     * schlimmer als ein Klang, der beim echten Nochmal-Lesen ausbleibt.
+     */
+    const REREAD = 30;
+    if (jumpedBack && this.aligner.position + REREAD <= this.lastPosition) {
       for (const i of [...this.firedSfx]) {
         const cue = this.story.cues[i];
         if (cue.at - cue.lead > position) this.firedSfx.delete(i);
       }
     }
+    this.lastPosition = position;
 
     let firedSound: string | null = null;
     for (let i = 0; i < this.story.cues.length; i++) {

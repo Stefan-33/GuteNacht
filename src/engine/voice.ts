@@ -49,6 +49,13 @@ export interface VoiceSpec {
   drive?: number;
   /** Eckfrequenz der Quelle - dämpft das Sägezahn-Gesurre. */
   tilt?: number;
+  /**
+   * Lautstärke-Tremolo als [Hertz, Tiefe]. Für Schafe und Ziegen der
+   * entscheidende Parameter: das charakteristische Meckern ist nichts
+   * anderes als ein schnelles Zittern der Lautstärke, ungefähr zwölfmal
+   * pro Sekunde. Ohne Tremolo klingt ein Schaf wie eine Hupe.
+   */
+  tremolo?: [number, number];
 }
 
 function setContour(param: AudioParam, t: number, points: Contour, exponential = true): void {
@@ -161,6 +168,18 @@ export function voice(ctx: Ctx, dest: AudioNode, t: number, spec: VoiceSpec): nu
   env.gain.setValueAtTime(spec.amp[0][1], t + spec.amp[0][0]);
   for (let i = 1; i < spec.amp.length; i++) {
     env.gain.linearRampToValueAtTime(spec.amp[i][1], t + spec.amp[i][0]);
+  }
+
+  if (spec.tremolo) {
+    const [rate, depth] = spec.tremolo;
+    const trem = ctx.createOscillator();
+    trem.type = 'sine';
+    trem.frequency.value = rate;
+    const tg = ctx.createGain();
+    tg.gain.value = depth;
+    trem.connect(tg).connect(env.gain);
+    trem.start(t);
+    trem.stop(stopAt);
   }
 
   throat.connect(shaper).connect(env).connect(dest);
