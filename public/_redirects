@@ -1,0 +1,4 @@
+# Gleiche Regel wie in netlify.toml, aber im Ausgabeordner.
+# Grund: Bei einem Ordner-Upload über die Netlify-Oberfläche wird die
+# netlify.toml nicht gelesen - nur was im veröffentlichten Verzeichnis liegt.
+/*  /index.html  200
