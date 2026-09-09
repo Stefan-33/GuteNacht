@@ -1,4 +1,5 @@
-import { AMB, SFX } from './sounds';
+import { AMB, SFX, trimOf } from './sounds';
+import { impulseResponse } from './voice';
 
 interface SampleEntry {
   name: string;
@@ -54,6 +55,24 @@ export class AudioEngine {
       this.sfxBus = this.ctx.createGain();
       this.sfxBus.gain.value = 1;
       this.sfxBus.connect(this.master);
+
+      /*
+       * Nachhall-Weg. Beide Busse laufen zusätzlich über einen künstlichen
+       * Raum. Ohne das klingt jeder synthetische Klang wie im schalltoten
+       * Raum aufgenommen - technisch sauber und vollkommen leblos. Etwas
+       * Hall bindet Effekte und Kulisse zu einer Szene zusammen.
+       */
+      const reverb = this.ctx.createConvolver();
+      reverb.buffer = impulseResponse(this.ctx);
+      reverb.connect(this.master);
+
+      const sfxSend = this.ctx.createGain();
+      sfxSend.gain.value = 0.22;
+      this.sfxBus.connect(sfxSend).connect(reverb);
+
+      const ambSend = this.ctx.createGain();
+      ambSend.gain.value = 0.12;
+      this.ambBus.connect(ambSend).connect(reverb);
 
       await this.loadSamples();
     }
@@ -133,7 +152,9 @@ export class AudioEngine {
       return;
     }
     const g = this.ctx.createGain();
-    g.gain.value = gain;
+    // Der Pegelabgleich gilt nur für synthetische Klänge - echte Aufnahmen
+    // bringen ihre eigene Aussteuerung mit.
+    g.gain.value = gain * trimOf(name);
     g.connect(this.sfxBus);
     const dur = recipe(this.ctx, g, this.ctx.currentTime + 0.02);
     this.duck(dur);
