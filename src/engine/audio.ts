@@ -171,6 +171,28 @@ export class AudioEngine {
   playSfx(name: string, gain = 1): void {
     if (!this.ctx || !this.sfxBus) return;
 
+    /*
+     * Der Tierkrach ist aus den vier Stadtmusikanten zusammengesetzt. Wenn
+     * für die echte Aufnahmen vorliegen, muss er DIESE stapeln - sonst
+     * klingen Esel, Hund, Katze und Hahn einzeln echt, im großen Auftritt
+     * aber plötzlich wieder synthetisch. Das wäre der peinlichste Moment
+     * der ganzen Geschichte, ausgerechnet an ihrem Höhepunkt.
+     */
+    if (name === 'tier_krach' && !this.samples.has('tier_krach')) {
+      const parts: [string, number][] = [
+        ['esel', 0], ['hund_bellen', 0.15], ['katze_miau', 0.4],
+        ['hahn_kikeriki', 0.65], ['hund_bellen', 1.0],
+        ['katze_miau', 1.45], ['hahn_kikeriki', 1.75],
+      ];
+      const anyReal = parts.some(([p]) => this.samples.has(p));
+      if (anyReal) {
+        for (const [part, delay] of parts) {
+          setTimeout(() => this.playSfx(part, gain * 0.45), delay * 1000);
+        }
+        return;
+      }
+    }
+
     const sample = this.samples.get(name);
     if (sample) {
       const g = this.ctx.createGain();
