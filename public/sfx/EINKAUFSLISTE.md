@@ -1,7 +1,10 @@
 # Einkaufsliste für echte Klänge
 
 Vollständig — deckt alle 13 Geschichten ab. Dateien hier ablegen, Namen exakt
-so schreiben. Alles, wofür keine Datei da ist, bleibt synthetisch.
+so schreiben.
+
+**Die Synthese ist abgeschaltet.** Wo keine Datei liegt, bleibt es still. Die
+Bibliothek zeigt an, wie viele der 52 Klänge schon da sind.
 
 Quelle: [pixabay.com/sound-effects](https://pixabay.com/sound-effects/) — kein
 Konto, keine Namensnennung, direkter Download.
@@ -10,7 +13,7 @@ Konto, keine Namensnennung, direkter Download.
 
 ## 1. Tiere und Stimmen — hier lohnt es sich am meisten
 
-Die Synthese ist hier schwach. Ein Kehlkopf lässt sich nicht aus Filtern bauen.
+Ohne diese bleiben die schönsten Momente der Geschichten stumm.
 
 | Datei | Suchbegriff | Kommt vor in |
 |---|---|---|
@@ -40,9 +43,10 @@ Die vier menschlichen Laute unten in der Tabelle (`gaehnen`, `schnarchen`,
 `hau_ruck`, `schluckauf`) sprichst du in dreißig Sekunden selbst ins Handy —
 schneller als jede Suche.
 
-## 2. Geräusche — die Synthese ist hier brauchbar
+## 2. Geräusche
 
-Nur austauschen, wenn dir etwas konkret missfällt.
+Hier wäre die Synthese brauchbar gewesen, aber sie ist aus - also braucht auch
+das echte Dateien.
 
 | Datei | Suchbegriff | Kommt vor in |
 |---|---|---|

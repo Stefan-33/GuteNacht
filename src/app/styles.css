@@ -200,6 +200,18 @@ button {
   color: rgba(255, 255, 255, 0.6);
 }
 
+.sound-status {
+  margin: 22px 0 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(242, 184, 85, 0.08);
+  border: 1px solid rgba(242, 184, 85, 0.2);
+  color: var(--accent);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .library-foot {
   margin-top: 32px;
   font-size: 13px;

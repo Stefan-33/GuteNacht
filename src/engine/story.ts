@@ -90,3 +90,21 @@ export async function loadStory(id: string): Promise<Story> {
   if (!res.ok) throw new Error(`Geschichte "${id}" nicht gefunden`);
   return compileStory(await res.json());
 }
+
+/**
+ * Wieviele echte Klangaufnahmen liegen bereit?
+ *
+ * Seit die Synthese abgeschaltet ist, bleibt es still, wo eine Datei
+ * fehlt. Ohne Anzeige würde man rätseln, warum eine Geschichte lautlos
+ * durchläuft - deshalb steht die Zahl in der Bibliothek.
+ */
+export async function loadSampleCount(): Promise<number> {
+  try {
+    const res = await fetch('/sfx/index.json');
+    if (!res.ok) return 0;
+    const list: unknown = await res.json();
+    return Array.isArray(list) ? list.length : 0;
+  } catch {
+    return 0;
+  }
+}

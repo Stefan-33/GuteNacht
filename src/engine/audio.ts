@@ -8,6 +8,24 @@ interface SampleEntry {
 }
 
 /**
+ * Synthetische Klänge sind abgeschaltet.
+ *
+ * Sie waren als Notnagel gedacht, damit die App ohne eine einzige
+ * Audiodatei läuft. Für Geräusche - Wind, Schritte, Feuer - hat das
+ * getragen; im Kern ist das gefiltertes Rauschen, und das kann Web Audio.
+ * Für Tierstimmen nicht: Ein Kehlkopf lässt sich mit Filtern nicht
+ * nachbauen. Drei Überarbeitungen mit Formant-Synthese und
+ * bioakustischer Kalibrierung haben daran nichts geändert, man hört
+ * weiter einen Synthesizer.
+ *
+ * Ergebnis: Lieber Stille als ein schlechter Klang. Wo keine Aufnahme
+ * liegt, passiert nichts. Der Synthesizer bleibt im Code - falls für
+ * einen einzelnen Klang nie eine Aufnahme kommt, lässt sich das hier
+ * gezielt wieder einschalten.
+ */
+const SYNTHESE = false;
+
+/**
  * Audio-Fassade: zwei Busse (Atmosphäre und Effekte), ein Master.
  *
  * Vorrang hat immer eine echte Aufnahme. Liegt unter public/sfx/ eine Datei
@@ -30,6 +48,8 @@ export class AudioEngine {
   private running = new Map<string, () => void>();
   private samples = new Map<string, AudioBuffer>();
   private music: Music | null = null;
+  /** Namen, für die eine Aufnahme fehlt - für die Anzeige in der Bibliothek. */
+  private readonly missing = new Set<string>();
   private musicGain = 0.085;
   private duckUntil = 0;
 
@@ -40,6 +60,11 @@ export class AudioEngine {
   /** Welche Klänge kommen aus echten Aufnahmen? Nur für die Anzeige. */
   get sampleNames(): string[] {
     return [...this.samples.keys()];
+  }
+
+  /** Welche Klänge wurden angefordert, lagen aber nicht als Aufnahme vor? */
+  get missingNames(): string[] {
+    return [...this.missing].sort();
   }
 
   /** Muss aus einem Klick-Handler heraus aufgerufen werden. */
@@ -185,7 +210,7 @@ export class AudioEngine {
         ['katze_miau', 1.45], ['hahn_kikeriki', 1.75],
       ];
       const anyReal = parts.some(([p]) => this.samples.has(p));
-      if (anyReal) {
+      if (anyReal || !SYNTHESE) {
         for (const [part, delay] of parts) {
           setTimeout(() => this.playSfx(part, gain * 0.45), delay * 1000);
         }
@@ -204,6 +229,12 @@ export class AudioEngine {
       src.start(this.ctx.currentTime + 0.02);
       src.onended = () => g.disconnect();
       this.duck(sample.duration);
+      return;
+    }
+
+    if (!SYNTHESE) {
+      // Keine Aufnahme vorhanden - dann bleibt es still.
+      this.missing.add(name);
       return;
     }
 
@@ -251,6 +282,11 @@ export class AudioEngine {
           g.disconnect();
         }, 1000);
       });
+      return;
+    }
+
+    if (!SYNTHESE) {
+      this.missing.add(name);
       return;
     }
 

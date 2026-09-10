@@ -4,7 +4,12 @@ import type { StoryMeta } from '../../engine/types';
 interface Props {
   stories: StoryMeta[];
   onOpen: (id: string) => void;
+  /** Wieviele echte Klangaufnahmen liegen bereit. */
+  sampleCount: number;
 }
+
+/** So viele Klänge und Kulissen brauchen die dreizehn Geschichten zusammen. */
+const SOUNDS_TOTAL = 52;
 
 /**
  * Filter über den Kategorien. Bewusst wenige und grobe: Wer abends mit
@@ -20,7 +25,7 @@ const FILTERS: { label: string; match: (s: StoryMeta) => boolean }[] = [
   { label: 'Zum Einschlafen', match: (s) => s.categories.some((c) => c === 'einschlafen' || c === 'ruhig') },
 ];
 
-export function Library({ stories, onOpen }: Props) {
+export function Library({ stories, onOpen, sampleCount }: Props) {
   const [filter, setFilter] = useState(0);
 
   const shown = useMemo(() => stories.filter(FILTERS[filter].match), [stories, filter]);
@@ -85,6 +90,14 @@ export function Library({ stories, onOpen }: Props) {
 
       {shown.length === 0 && (
         <p className="library-foot">Hier ist noch nichts. Nimm einen anderen Filter.</p>
+      )}
+
+      {sampleCount < SOUNDS_TOTAL && (
+        <p className="sound-status">
+          {sampleCount === 0
+            ? 'Noch keine Klänge geladen – die Geschichten laufen mit Musik, aber ohne Geräusche.'
+            : `${sampleCount} von ${SOUNDS_TOTAL} Klängen geladen. Wo eine Aufnahme fehlt, bleibt es still.`}
+        </p>
       )}
 
       <p className="library-foot">
