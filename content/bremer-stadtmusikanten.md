@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 6
 minutes: 4
 categories: maerchen, tiere, grimm
+music: wald
+icon: 🐓
 ---
 
 Es war einmal ein Esel, der lebte auf einem Bauernhof.{{amb:bauernhof|gain=0.45}} Viele Jahre lang hatte er schwere Säcke zur Mühle getragen. Doch nun war er alt geworden und sehr müde.

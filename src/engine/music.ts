@@ -42,22 +42,70 @@ function freq(midi: number): number {
   return 440 * Math.pow(2, (midi - 69) / 12);
 }
 
-/** Leitereigene Akkorde in a-Moll. Vier Töne, warm, ohne Spannung. */
-const CHORDS: number[][] = [
-  [45, 52, 60, 64], // Am7
-  [41, 48, 57, 64], // Fmaj7
-  [48, 55, 64, 67], // Cmaj7
-  [43, 50, 59, 64], // G6
+/*
+ * Akkorde und Melodietöne stehen als HALBTONABSTÄNDE zum Grundton, nicht
+ * als feste Noten. Dadurch lässt sich das ganze Gerüst verschieben, ohne
+ * dass die Sicherheitsgarantie verlorengeht: Die Melodietöne bleiben in
+ * jeder Tonart die Pentatonik über genau diesen Akkorden.
+ */
+const CHORD_SHAPES: number[][] = [
+  [0, 7, 15, 19],   // i7
+  [-4, 3, 12, 19],  // VImaj7
+  [3, 10, 19, 22],  // IIImaj7
+  [-2, 5, 14, 19],  // VII6
 ];
 
-/** a-Moll-Pentatonik über zwei Oktaven - passt auf alle Akkorde oben. */
-const MELODY = [69, 72, 74, 76, 79, 81, 84, 86, 88, 91];
+const MELODY_SHAPE = [24, 27, 29, 31, 34, 36, 39, 41, 43, 46];
+
+/**
+ * Klangstimmungen. Stefans Wunsch: Die Musik soll zur Geschichte passen -
+ * bei einer Waldgeschichte anders klingen als im Weltraum.
+ *
+ * Verändert werden nur Tonlage, Helligkeit, Dichte und Ausklang. Das
+ * harmonische Gerüst bleibt in allen Stimmungen dasselbe, damit die
+ * Garantie erhalten bleibt, dass nichts schief klingen kann. Eine
+ * Stimmung ist also eine Färbung, keine neue Musik.
+ */
+export interface Mood {
+  /** Grundton als MIDI-Note. */
+  root: number;
+  /** Eckfrequenz der Klangfläche - macht sie hell oder dunkel. */
+  cutoff: number;
+  /** Kürzester und längster Abstand zwischen zwei Tönen, in Sekunden. */
+  spacing: [number, number];
+  /** Sekunden je Akkord. */
+  chordLength: number;
+  /** Wie lange ein Glockenton ausklingt. */
+  decay: number;
+  /** Verschiebung der Melodie in Halbtönen - höher wirkt luftiger. */
+  lift: number;
+}
+
+export const MOODS: Record<string, Mood> = {
+  /** Warm und getragen. Der Standard. */
+  ruhig: { root: 45, cutoff: 620, spacing: [2.5, 7], chordLength: 26, decay: 4.5, lift: 0 },
+
+  /** Wald: heller und lebendiger, passt zu Vogelgezwitscher in der Kulisse. */
+  wald: { root: 50, cutoff: 820, spacing: [2, 5.5], chordLength: 22, decay: 3.6, lift: 0 },
+
+  /** Nacht: dunkel, weit auseinander, langes Ausklingen. Zum Einschlafen. */
+  nacht: { root: 38, cutoff: 420, spacing: [4, 10], chordLength: 32, decay: 6.5, lift: -12 },
+
+  /** Meer: sehr langsam, tief, breit. Alles schwingt lange nach. */
+  meer: { root: 43, cutoff: 500, spacing: [4.5, 11], chordLength: 34, decay: 7.5, lift: -5 },
+
+  /** Weltraum: sparsam und hoch. Viel Stille zwischen den Tönen. */
+  weltraum: { root: 40, cutoff: 950, spacing: [4, 9], chordLength: 30, decay: 6, lift: 12 },
+
+  /** Abenteuer: heller, dichter, etwas mehr Bewegung. */
+  abenteuer: { root: 48, cutoff: 900, spacing: [1.8, 4.5], chordLength: 20, decay: 3.2, lift: 0 },
+};
 
 export interface MusicOptions {
   /** Grundlautstärke. Bewusst sehr niedrig - die Musik trägt, sie führt nicht. */
   gain?: number;
-  /** Sekunden je Akkord. */
-  chordLength?: number;
+  /** Stimmung, passend zur Geschichte. */
+  mood?: string;
 }
 
 export class Music {
@@ -70,10 +118,14 @@ export class Music {
   private nextBell = 0;
   private timer: ReturnType<typeof setInterval> | null = null;
 
-  private readonly chordLength: number;
+  private readonly mood: Mood;
+  private readonly chords: number[][];
+  private readonly melody: number[];
 
   constructor(private readonly ctx: Ctx, dest: AudioNode, opts: MusicOptions = {}) {
-    this.chordLength = opts.chordLength ?? 26;
+    this.mood = MOODS[opts.mood ?? 'ruhig'] ?? MOODS.ruhig;
+    this.chords = CHORD_SHAPES.map((shape) => shape.map((n) => n + this.mood.root));
+    this.melody = MELODY_SHAPE.map((n) => n + this.mood.root + this.mood.lift);
 
     this.out = ctx.createGain();
     this.out.gain.value = 0;
@@ -107,8 +159,8 @@ export class Music {
     g.gain.setValueAtTime(0.16, at + length - fade);
     g.gain.linearRampToValueAtTime(0, at + length);
 
-    const lp = filter(this.ctx, 'lowpass', 620, 1.4);
-    lfo(this.ctx, lp.frequency, 0.045, 260, at, at + length);
+    const lp = filter(this.ctx, 'lowpass', this.mood.cutoff, 1.4);
+    lfo(this.ctx, lp.frequency, 0.045, this.mood.cutoff * 0.42, at, at + length);
     g.connect(this.pad);
     lp.connect(g);
 
@@ -144,10 +196,11 @@ export class Music {
    * genau wie bei einer echten Glocke.
    */
   private bell(note: number, at: number, level: number): void {
+    const d = this.mood.decay;
     const partials: [number, number, number][] = [
-      [1, 1, 4.5],    // Grundton, langes Ausklingen
-      [2, 0.35, 2.6], // Oktave
-      [3, 0.14, 1.6], // Duodezime
+      [1, 1, d],          // Grundton, langes Ausklingen
+      [2, 0.35, d * 0.58], // Oktave
+      [3, 0.14, d * 0.36], // Duodezime
     ];
     for (const [ratio, amp, decay] of partials) {
       const o = this.ctx.createOscillator();
@@ -176,25 +229,26 @@ export class Music {
     while (this.chordEnd < until) {
       // Zufallsschritt statt fester Schleife - aber nie zweimal derselbe
       // Akkord hintereinander, das klänge nach Stillstand.
-      let next = Math.floor(Math.random() * CHORDS.length);
-      if (next === this.chord) next = (next + 1) % CHORDS.length;
+      let next = Math.floor(Math.random() * this.chords.length);
+      if (next === this.chord) next = (next + 1) % this.chords.length;
       this.chord = next;
-      this.padVoice(CHORDS[this.chord], this.chordEnd, this.chordLength + 7);
-      this.chordEnd += this.chordLength;
+      this.padVoice(this.chords[this.chord], this.chordEnd, this.mood.chordLength + 7);
+      this.chordEnd += this.mood.chordLength;
     }
 
     while (this.nextBell < until) {
-      const note = MELODY[Math.floor(Math.random() * MELODY.length)];
+      const note = this.melody[Math.floor(Math.random() * this.melody.length)];
       this.bell(note, this.nextBell, 0.12 + Math.random() * 0.1);
 
       // Gelegentlich ein zweiter Ton dicht dahinter - das ergibt kleine
       // Gesten statt gleichmäßigem Tropfen.
       if (Math.random() < 0.35) {
-        const second = MELODY[Math.floor(Math.random() * MELODY.length)];
+        const second = this.melody[Math.floor(Math.random() * this.melody.length)];
         this.bell(second, this.nextBell + 0.4 + Math.random() * 0.5, 0.08);
       }
 
-      this.nextBell += 2.5 + Math.random() * 4.5;
+      const [min, max] = this.mood.spacing;
+      this.nextBell += min + Math.random() * (max - min);
     }
   }
 

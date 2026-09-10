@@ -7,9 +7,9 @@ interface Props {
 }
 
 /**
- * Filter über den Kategorien der Geschichten. Bewusst wenige und grobe:
- * Wer abends mit einem müden Kind auf dem Arm ein Handy bedient, will
- * nicht vierzehn Schlagworte lesen, sondern eine Richtung wählen.
+ * Filter über den Kategorien. Bewusst wenige und grobe: Wer abends mit
+ * einem müden Kind auf dem Arm ein Handy bedient, will nicht vierzehn
+ * Schlagworte lesen, sondern eine Richtung wählen.
  */
 const FILTERS: { label: string; match: (s: StoryMeta) => boolean }[] = [
   { label: 'Alle', match: () => true },
@@ -23,10 +23,7 @@ const FILTERS: { label: string; match: (s: StoryMeta) => boolean }[] = [
 export function Library({ stories, onOpen }: Props) {
   const [filter, setFilter] = useState(0);
 
-  const shown = useMemo(
-    () => stories.filter(FILTERS[filter].match),
-    [stories, filter],
-  );
+  const shown = useMemo(() => stories.filter(FILTERS[filter].match), [stories, filter]);
 
   const surprise = () => {
     const pool = shown.length > 0 ? shown : stories;
@@ -39,7 +36,7 @@ export function Library({ stories, onOpen }: Props) {
     <div className="library">
       <header className="library-head">
         <div className="moon" aria-hidden="true" />
-        <h1>GuteNacht</h1>
+        <h1>Sternstunde</h1>
         <p>Du liest vor. Die Geschichte macht die Geräusche.</p>
       </header>
 
@@ -61,15 +58,25 @@ export function Library({ stories, onOpen }: Props) {
         ✨ Überrasch mich
       </button>
 
+      {/*
+        Bunt, aber auf dunklem Grund. Beim Aussuchen darf es fröhlich sein -
+        eine gleißend weiße Seite um acht Uhr abends wäre für beide Augenpaare
+        die falsche Entscheidung. Die Farbe richtet sich nach der Musik-
+        stimmung, dadurch sehen Geschichten mit ähnlicher Klangwelt auch
+        ähnlich aus.
+      */}
       <ul className="story-list">
         {shown.map((s) => (
           <li key={s.id}>
-            <button className="story-card" onClick={() => onOpen(s.id)}>
-              <span className="story-title">{s.title}</span>
-              {s.subtitle && <span className="story-subtitle">{s.subtitle}</span>}
-              <span className="story-meta">
-                <span className="pill">{s.ageMin}–{s.ageMax} Jahre</span>
-                <span className="pill">{s.minutes} Min</span>
+            <button className={`story-card m-${s.music}`} onClick={() => onOpen(s.id)}>
+              <span className="story-icon" aria-hidden="true">{s.icon}</span>
+              <span className="story-body">
+                <span className="story-title">{s.title}</span>
+                {s.subtitle && <span className="story-subtitle">{s.subtitle}</span>}
+                <span className="story-meta">
+                  <span className="pill">{s.ageMin}–{s.ageMax} Jahre</span>
+                  <span className="pill">{s.minutes} Min</span>
+                </span>
               </span>
             </button>
           </li>

@@ -1,4 +1,5 @@
 import { AMB, SFX, trimOf } from './sounds';
+import { Music } from './music';
 import { impulseResponse } from './voice';
 
 interface SampleEntry {
@@ -28,6 +29,8 @@ export class AudioEngine {
   private sfxBus: GainNode | null = null;
   private running = new Map<string, () => void>();
   private samples = new Map<string, AudioBuffer>();
+  private music: Music | null = null;
+  private musicGain = 0.085;
   private duckUntil = 0;
 
   get ready(): boolean {
@@ -109,6 +112,30 @@ export class AudioEngine {
         }
       }),
     );
+  }
+
+  /**
+   * Hintergrundmusik starten, passend zur Stimmung der Geschichte.
+   *
+   * Die Lautstärke ist bewusst sehr niedrig. Zwei Gründe: Die Musik soll
+   * tragen und nicht führen - und je weniger davon über den Lautsprecher
+   * läuft, desto weniger landet wieder im Mikrofon und stört die
+   * Spracherkennung.
+   */
+  startMusic(mood: string): void {
+    if (!this.ctx || !this.master || this.music) return;
+    this.music = new Music(this.ctx, this.master, { mood, gain: this.musicGain });
+    this.music.start();
+  }
+
+  /** Musik zurücknehmen, solange gesprochen wird. */
+  duckMusic(active: boolean): void {
+    this.music?.duck(active, this.musicGain);
+  }
+
+  stopMusic(): void {
+    this.music?.stop();
+    this.music = null;
   }
 
   setVolume(v: number): void {
@@ -222,6 +249,7 @@ export class AudioEngine {
 
   /** Beim Verlassen des Lese-Screens. */
   dispose(): void {
+    this.stopMusic();
     this.stopAllAmbient();
     if (this.ctx) {
       const ctx = this.ctx;

@@ -70,6 +70,8 @@ export function compileStory(raw: RawStory): Story {
     ageMax: raw.ageMax,
     minutes: raw.minutes,
     categories: raw.categories,
+    music: raw.music,
+    icon: raw.icon,
     tokens,
     codes: tokens.map(cologne),
     cues,

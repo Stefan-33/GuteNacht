@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 6
 minutes: 3
 categories: fabel, tiere, freundschaft
+music: abenteuer
+icon: 🦁
 ---
 
 In der warmen Mittagssonne schlief ein großer Löwe.{{amb:savanne|gain=0.4}} Er lag im Gras und schnarchte leise vor sich hin.{{sfx:schnarchen|gain=0.5}}

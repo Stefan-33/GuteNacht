@@ -44,6 +44,10 @@ export interface Story {
   ageMax: number;
   minutes: number;
   categories: string[];
+  /** Stimmung der Hintergrundmusik, siehe MOODS in music.ts. */
+  music: string;
+  /** Symbol für die Bibliothek. */
+  icon: string;
   /** Normalisierte Tokens - die Grundlage für das Alignment. */
   tokens: string[];
   /** Vorberechnete Phonetik-Codes, damit zur Laufzeit nichts gerechnet wird. */
@@ -61,4 +65,6 @@ export interface StoryMeta {
   ageMax: number;
   minutes: number;
   categories: string[];
+  music: string;
+  icon: string;
 }

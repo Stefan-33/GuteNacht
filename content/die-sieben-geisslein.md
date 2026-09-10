@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 6
 minutes: 4
 categories: maerchen, tiere, lustig
+music: nacht
+icon: 🐐
 ---
 
 Eine Geißenmutter hatte sieben kleine Geißlein.{{amb:stube|gain=0.35}} Eines Morgens musste sie in den Wald.

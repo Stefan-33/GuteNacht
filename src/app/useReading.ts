@@ -21,6 +21,7 @@ export function useReading(story: Story | null) {
   const speech = useMemo<SpeechSource>(() => new WebSpeechSource(), []);
   const sessionRef = useRef<ReadingSession | null>(null);
   const wakeLockRef = useRef<{ release(): Promise<void> } | null>(null);
+  const speakingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [position, setPosition] = useState(0);
   const [status, setStatus] = useState<SpeechState>('idle');
@@ -48,7 +49,16 @@ export function useReading(story: Story | null) {
 
   // Sprachquelle verdrahten.
   useEffect(() => {
-    speech.onHypothesis = (tokens) => sessionRef.current?.feed(tokens);
+    speech.onHypothesis = (tokens) => {
+      sessionRef.current?.feed(tokens);
+
+      // Solange Wörter hereinkommen, wird gesprochen - dann geht die Musik
+      // zurück. Erst nach anderthalb Sekunden Stille kommt sie wieder hoch,
+      // sonst pumpt sie in jeder Atempause.
+      audio.duckMusic(true);
+      if (speakingTimer.current) clearTimeout(speakingTimer.current);
+      speakingTimer.current = setTimeout(() => audio.duckMusic(false), 1500);
+    };
     speech.onState = (s, msg) => {
       setStatus(s);
       setMessage(msg ?? null);
@@ -57,8 +67,9 @@ export function useReading(story: Story | null) {
       speech.onHypothesis = null;
       speech.onState = null;
       speech.stop();
+      if (speakingTimer.current) clearTimeout(speakingTimer.current);
     };
-  }, [speech]);
+  }, [speech, audio]);
 
   // Audio-Kontext beim Verlassen abbauen, sonst läuft der Wald weiter.
   useEffect(() => () => audio.dispose(), [audio]);
@@ -72,6 +83,8 @@ export function useReading(story: Story | null) {
     // Muss synchron aus der Nutzergeste heraus passieren, sonst bleibt
     // der AudioContext auf Android stumm.
     await audio.unlock();
+    // Musik passend zur Geschichte - siehe MOODS in music.ts.
+    if (story) audio.startMusic(story.music);
     speech.start();
 
     // Bildschirm anlassen - sonst ist nach 30 Sekunden dunkel und
@@ -82,12 +95,13 @@ export function useReading(story: Story | null) {
     } catch {
       /* Ohne Wake Lock geht es auch, nur unbequemer. */
     }
-  }, [audio, speech]);
+  }, [audio, speech, story]);
 
   const pause = useCallback(() => {
     speech.stop();
+    audio.stopMusic();
     releaseWakeLock();
-  }, [speech, releaseWakeLock]);
+  }, [speech, audio, releaseWakeLock]);
 
   const restart = useCallback(() => {
     sessionRef.current?.reset();

@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 6
 minutes: 3
 categories: fantasie, weltraum, einschlafen
+music: weltraum
+icon: 🚀
 ---
 
 Paul hatte einen großen Karton gefunden.{{amb:stube|gain=0.3}} Er malte Fenster darauf, klebte Pappflügel an die Seiten und schrieb vorne in großen Buchstaben: RAKETE.

@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 6
 minutes: 3
 categories: fantasie, lustig, tiere
+music: abenteuer
+icon: 🐲
 ---
 
 In einer Höhle am Berg wohnte ein Drache.{{amb:hoehle|gain=0.4}} Er hieß Fips, er war grün, und eigentlich war er ein sehr freundlicher Drache.

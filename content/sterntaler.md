@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 6
 minutes: 3
 categories: maerchen, einschlafen, ruhig
+music: nacht
+icon: ⭐
 ---
 
 Es war einmal ein kleines Mädchen, das hatte nichts mehr auf der Welt.{{amb:wald_nacht|gain=0.4}} Nur ein Stück Brot in der Hand und die Kleider, die es anhatte.

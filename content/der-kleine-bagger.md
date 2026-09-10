@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 5
 minutes: 3
 categories: fantasie, fahrzeuge, einschlafen
+music: nacht
+icon: 🚜
 ---
 
 Auf einer Baustelle am Rand der Stadt stand ein kleiner gelber Bagger.{{amb:baustelle|gain=0.35}} Er hieß Bruno, und er liebte seine Arbeit über alles.

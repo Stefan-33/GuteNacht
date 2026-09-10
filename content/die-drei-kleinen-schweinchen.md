@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 6
 minutes: 4
 categories: maerchen, tiere, lustig
+music: wald
+icon: 🐷
 ---
 
 Es waren einmal drei kleine Schweinchen.{{amb:bauernhof|gain=0.4}} Sie waren groß genug geworden, um sich ein eigenes Haus zu bauen.

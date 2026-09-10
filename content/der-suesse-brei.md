@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 6
 minutes: 3
 categories: maerchen, lustig, essen
+music: ruhig
+icon: 🍯
 ---
 
 Es war einmal ein kleines Mädchen, das lebte mit seiner Mutter in einem winzigen Haus.{{amb:stube|gain=0.35}} Die beiden waren arm, und an diesem Tag war überhaupt nichts mehr zu essen da.

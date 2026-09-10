@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 6
 minutes: 3
 categories: fantasie, natur, einschlafen
+music: meer
+icon: 🌧️
 ---
 
 Hoch oben am Himmel wohnte eine kleine Wolke.{{amb:wind_hoehe|gain=0.4}} Sie war grau und rund und ziemlich voll mit Regen.

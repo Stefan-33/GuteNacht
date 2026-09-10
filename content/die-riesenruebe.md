@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 5
 minutes: 3
 categories: maerchen, tiere, mitmachen
+music: ruhig
+icon: 🥕
 ---
 
 Ein alter Mann hatte in seinem Garten eine Rübe gepflanzt.{{amb:bauernhof|gain=0.4}} Er goss sie jeden Tag, und die Rübe wuchs. Und wuchs. Und wuchs.

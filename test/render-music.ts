@@ -75,7 +75,7 @@ function encodeWav(left: Float32Array, rate: number): string {
   return btoa(binary);
 }
 
-async function render(seconds: number, gain: number): Promise<string> {
+async function render(seconds: number, gain: number, mood: string): Promise<string> {
   const rate = 44100;
   const ctx = new OfflineAudioContext(1, Math.ceil(rate * seconds), rate);
 
@@ -96,7 +96,7 @@ async function render(seconds: number, gain: number): Promise<string> {
   const bus = ctx.createGain();
   bus.connect(master);
   bus.connect(send);
-  const music = new Music(ctx as unknown as Ctx, bus, { gain });
+  const music = new Music(ctx as unknown as Ctx, bus, { gain, mood });
 
   music.scheduleUntil(seconds);
   const buffer = await ctx.startRendering();

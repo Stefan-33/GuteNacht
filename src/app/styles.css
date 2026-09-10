@@ -145,32 +145,59 @@ button {
 
 .story-card {
   width: 100%;
-  display: grid;
-  gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
   text-align: left;
-  padding: 18px 20px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, var(--bg-3), var(--bg-2));
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: transform 0.12s ease, border-color 0.12s ease;
+  padding: 16px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  transition: transform 0.12s ease, filter 0.12s ease;
+  /* Grundfarbe; jede Stimmung überschreibt sie unten. */
+  background: linear-gradient(135deg, #2c2740, #1f1b2e);
 }
 
 .story-card:active {
   transform: scale(0.985);
-  border-color: rgba(242, 184, 85, 0.35);
+  filter: brightness(1.15);
 }
 
-.story-title { font-size: 19px; font-weight: 600; }
-.story-subtitle { font-size: 14px; color: var(--ink-dim); }
+/*
+  Farbwelten nach Musikstimmung. Gedämpfte, tiefe Töne statt Neon - bunt
+  genug, dass ein Kind die Geschichten auseinanderhält, dunkel genug fürs
+  Kinderzimmer am Abend.
+*/
+.story-card.m-ruhig     { background: linear-gradient(135deg, #4a3520, #2a1f16); }
+.story-card.m-wald      { background: linear-gradient(135deg, #1f4030, #16261d); }
+.story-card.m-nacht     { background: linear-gradient(135deg, #232a52, #171a2e); }
+.story-card.m-meer      { background: linear-gradient(135deg, #17414c, #10242b); }
+.story-card.m-weltraum  { background: linear-gradient(135deg, #372156, #1e1430); }
+.story-card.m-abenteuer { background: linear-gradient(135deg, #5a3018, #2f1a10); }
 
-.story-meta { display: flex; gap: 8px; margin-top: 6px; }
+.story-icon {
+  font-size: 34px;
+  line-height: 1;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.story-body {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.story-title { font-size: 18px; font-weight: 600; }
+.story-subtitle { font-size: 13px; color: rgba(255, 255, 255, 0.55); }
+
+.story-meta { display: flex; gap: 8px; margin-top: 4px; }
 
 .pill {
-  font-size: 12px;
-  padding: 4px 10px;
+  font-size: 11px;
+  padding: 3px 9px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--ink-dim);
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .library-foot {

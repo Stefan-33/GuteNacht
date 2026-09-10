@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 6
 minutes: 3
 categories: fantasie, tiere, meer
+music: meer
+icon: 🐋
 ---
 
 Ganz unten im Meer wohnte ein kleiner blauer Fisch.{{amb:unterwasser|gain=0.45}} Er hieß Flossi, und er war so klein, dass ihn kaum jemand sah.

@@ -96,6 +96,9 @@ function build(raw) {
     ageMax: Number(meta.ageMax),
     minutes: Number(meta.minutes),
     categories: (meta.categories ?? '').split(',').map((c) => c.trim()).filter(Boolean),
+    // Klangstimmung der Hintergrundmusik und Symbol für die Bibliothek.
+    music: meta.music || 'ruhig',
+    icon: meta.icon || '📖',
     blocks,
   };
 }

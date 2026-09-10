@@ -7,6 +7,8 @@ ageMin: 3
 ageMax: 6
 minutes: 3
 categories: maerchen, lustig, essen
+music: abenteuer
+icon: 🥞
 ---
 
 Es waren einmal drei alte Frauen, die wollten sich einen Pfannkuchen backen.{{amb:stube|gain=0.35}} Sie rührten den Teig, gossen ihn in die Pfanne, und bald brutzelte er vor sich hin.{{sfx:brutzeln}}
