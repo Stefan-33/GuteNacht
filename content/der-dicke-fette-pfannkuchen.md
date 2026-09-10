@@ -7,7 +7,7 @@ ageMin: 3
 ageMax: 6
 minutes: 3
 categories: maerchen, lustig, essen
-music: abenteuer
+music: hell
 icon: 🥞
 ---
 

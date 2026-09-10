@@ -27,6 +27,18 @@ export function useReading(story: Story | null) {
   const [status, setStatus] = useState<SpeechState>('idle');
   const [message, setMessage] = useState<string | null>(null);
   const [confidence, setConfidence] = useState(0);
+  /*
+   * Drei Stufen statt eines stufenlosen Reglers: Wer abends mit einem
+   * müden Kind auf dem Arm ein Handy bedient, trifft keinen Schieberegler.
+   */
+  const [musicLevel, setMusicLevelState] = useState<number>(() => {
+    try {
+      const saved = localStorage.getItem('sternstunde.musik');
+      return saved === null ? 1 : Number(saved);
+    } catch {
+      return 1;
+    }
+  });
 
   // Session neu aufsetzen, wenn eine andere Geschichte geladen wird.
   useEffect(() => {
@@ -74,6 +86,18 @@ export function useReading(story: Story | null) {
   // Audio-Kontext beim Verlassen abbauen, sonst läuft der Wald weiter.
   useEffect(() => () => audio.dispose(), [audio]);
 
+  const MUSIC_STEPS = [0, 0.045, 0.085];
+
+  const setMusicLevel = useCallback((step: number) => {
+    setMusicLevelState(step);
+    audio.setMusicVolume(MUSIC_STEPS[step] ?? 0.085);
+    try {
+      localStorage.setItem('sternstunde.musik', String(step));
+    } catch {
+      /* Ohne Merken geht es auch. */
+    }
+  }, [audio]);
+
   const releaseWakeLock = useCallback(() => {
     void wakeLockRef.current?.release().catch(() => undefined);
     wakeLockRef.current = null;
@@ -84,7 +108,8 @@ export function useReading(story: Story | null) {
     // der AudioContext auf Android stumm.
     await audio.unlock();
     // Musik passend zur Geschichte - siehe MOODS in music.ts.
-    if (story) audio.startMusic(story.music);
+    audio.setMusicVolume(MUSIC_STEPS[musicLevel] ?? 0.085);
+    if (story && musicLevel > 0) audio.startMusic(story.music);
     speech.start();
 
     // Bildschirm anlassen - sonst ist nach 30 Sekunden dunkel und
@@ -95,7 +120,7 @@ export function useReading(story: Story | null) {
     } catch {
       /* Ohne Wake Lock geht es auch, nur unbequemer. */
     }
-  }, [audio, speech, story]);
+  }, [audio, speech, story, musicLevel]);
 
   const pause = useCallback(() => {
     speech.stop();
@@ -135,6 +160,8 @@ export function useReading(story: Story | null) {
     message,
     confidence,
     micAvailable: speech.available,
+    musicLevel,
+    setMusicLevel,
     start,
     pause,
     restart,

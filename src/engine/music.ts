@@ -82,23 +82,34 @@ export interface Mood {
 }
 
 export const MOODS: Record<string, Mood> = {
-  /** Warm und getragen. Der Standard. */
-  ruhig: { root: 45, cutoff: 620, spacing: [2.5, 7], chordLength: 26, decay: 4.5, lift: 0 },
+  /*
+   * Alle Stimmungen bleiben bewusst im ruhigen Bereich. Sie unterscheiden
+   * sich in der FARBE - Tonlage, Helligkeit, Ausklang -, nicht in der
+   * Betriebsamkeit. Eine Vorlese-App am Abend darf nirgends antreiben,
+   * auch nicht bei einer aufregenden Geschichte.
+   *
+   * Die erste Fassung hatte eine Stimmung "abenteuer" mit dichteren Tönen.
+   * Die war ein Widerspruch zum eigentlichen Zweck und ist jetzt "hell":
+   * gleiche Ruhe, nur freundlicher und höher.
+   */
 
-  /** Wald: heller und lebendiger, passt zu Vogelgezwitscher in der Kulisse. */
-  wald: { root: 50, cutoff: 820, spacing: [2, 5.5], chordLength: 22, decay: 3.6, lift: 0 },
+  /** Warm und getragen. Der Standard. */
+  ruhig: { root: 45, cutoff: 620, spacing: [3, 7.5], chordLength: 26, decay: 5, lift: 0 },
+
+  /** Wald: heller und grüner, passt zum Vogelgezwitscher in der Kulisse. */
+  wald: { root: 50, cutoff: 800, spacing: [3, 7], chordLength: 24, decay: 4.8, lift: 0 },
 
   /** Nacht: dunkel, weit auseinander, langes Ausklingen. Zum Einschlafen. */
-  nacht: { root: 38, cutoff: 420, spacing: [4, 10], chordLength: 32, decay: 6.5, lift: -12 },
+  nacht: { root: 38, cutoff: 420, spacing: [4.5, 10], chordLength: 32, decay: 7, lift: -12 },
 
   /** Meer: sehr langsam, tief, breit. Alles schwingt lange nach. */
-  meer: { root: 43, cutoff: 500, spacing: [4.5, 11], chordLength: 34, decay: 7.5, lift: -5 },
+  meer: { root: 43, cutoff: 500, spacing: [5, 11], chordLength: 34, decay: 8, lift: -5 },
 
   /** Weltraum: sparsam und hoch. Viel Stille zwischen den Tönen. */
-  weltraum: { root: 40, cutoff: 950, spacing: [4, 9], chordLength: 30, decay: 6, lift: 12 },
+  weltraum: { root: 40, cutoff: 950, spacing: [4.5, 10], chordLength: 30, decay: 6.5, lift: 12 },
 
-  /** Abenteuer: heller, dichter, etwas mehr Bewegung. */
-  abenteuer: { root: 48, cutoff: 900, spacing: [1.8, 4.5], chordLength: 20, decay: 3.2, lift: 0 },
+  /** Hell: freundlich und offen - aber genauso ruhig wie alle anderen. */
+  hell: { root: 48, cutoff: 880, spacing: [3, 7.5], chordLength: 24, decay: 5, lift: 0 },
 };
 
 export interface MusicOptions {

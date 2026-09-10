@@ -221,8 +221,8 @@ button {
 .reader-head {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: max(10px, env(safe-area-inset-top)) 12px 10px;
+  gap: 8px;
+  padding: max(10px, env(safe-area-inset-top)) 10px 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -270,7 +270,7 @@ button {
 }
 
 .ghost {
-  width: 40px;
+  width: 38px;
   height: 40px;
   border-radius: 12px;
   font-size: 19px;

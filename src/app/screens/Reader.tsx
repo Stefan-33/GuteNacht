@@ -53,6 +53,14 @@ export function Reader({ story, onBack }: Props) {
             <i className="dot" /> {statusLabel}
           </span>
         </div>
+        <button
+          className="ghost"
+          onClick={() => r.setMusicLevel((r.musicLevel + 1) % 3)}
+          aria-label={`Musik ${['aus', 'leise', 'an'][r.musicLevel]} – tippen zum Wechseln`}
+          title={`Musik ${['aus', 'leise', 'an'][r.musicLevel]}`}
+        >
+          {['🔇', '🔉', '🔊'][r.musicLevel]}
+        </button>
         <button className="ghost" onClick={r.restart} aria-label="Von vorn beginnen">↺</button>
       </header>
 
@@ -105,6 +113,7 @@ export function Reader({ story, onBack }: Props) {
             <button className="secondary" onClick={r.pause}>Pause</button>
             <p className="hint">
               Verhört sich die App? Tippe auf das Wort, bei dem du gerade bist.
+              {r.musicLevel > 0 && ' Hilft das nicht, stell die Musik oben leiser.'}
             </p>
           </>
         )}

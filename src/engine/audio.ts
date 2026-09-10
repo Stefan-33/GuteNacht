@@ -128,6 +128,18 @@ export class AudioEngine {
     this.music.start();
   }
 
+  /**
+   * Musiklautstärke setzen, 0 bis 1.
+   *
+   * Gibt es, weil sich erst beim echten Vorlesen zeigt, ob die Musik der
+   * Spracherkennung in die Quere kommt. Statt darauf zu warten, dass es
+   * jemand meldet, kann es am Gerät sofort geregelt werden.
+   */
+  setMusicVolume(level: number): void {
+    this.musicGain = Math.max(0, Math.min(0.2, level));
+    this.music?.duck(false, this.musicGain);
+  }
+
   /** Musik zurücknehmen, solange gesprochen wird. */
   duckMusic(active: boolean): void {
     this.music?.duck(active, this.musicGain);
