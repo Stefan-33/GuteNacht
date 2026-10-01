@@ -98,13 +98,33 @@ export async function loadStory(id: string): Promise<Story> {
  * fehlt. Ohne Anzeige würde man rätseln, warum eine Geschichte lautlos
  * durchläuft - deshalb steht die Zahl in der Bibliothek.
  */
-export async function loadSampleCount(): Promise<number> {
+export interface SoundStatus {
+  /** Wieviele Aufnahmen liegen in public/sfx/. */
+  have: number;
+  /** Wieviele die Geschichten zusammen brauchen. */
+  need: number;
+}
+
+async function countOf(url: string): Promise<number> {
   try {
-    const res = await fetch('/sfx/index.json');
+    const res = await fetch(url);
     if (!res.ok) return 0;
     const list: unknown = await res.json();
     return Array.isArray(list) ? list.length : 0;
   } catch {
     return 0;
   }
+}
+
+/**
+ * Klangstand. Die Soll-Zahl stand früher als Konstante im Bildschirm und war
+ * nach jedem Ausdünnen falsch. Jetzt schreibt sie die Content-Pipeline aus
+ * den Geschichten selbst.
+ */
+export async function loadSoundStatus(): Promise<SoundStatus> {
+  const [have, need] = await Promise.all([
+    countOf('/sfx/index.json'),
+    countOf('/sfx/palette.json'),
+  ]);
+  return { have, need };
 }

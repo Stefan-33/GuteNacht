@@ -114,6 +114,15 @@ function build(raw) {
  */
 const AUDIO = /\.(mp3|ogg|opus|m4a|wav|webm)$/i;
 
+/*
+ * Zusammengesetzte Klänge. Der Tierkrach der Stadtmusikanten ist keine
+ * eigene Aufnahme, sondern vier gestapelte - also braucht die Einkaufsliste
+ * seine Teile, nicht ihn.
+ */
+const ZUSAMMENGESETZT = {
+  tier_krach: ['esel', 'hund_bellen', 'katze_miau', 'hahn_kikeriki'],
+};
+
 async function buildSampleManifest() {
   let entries = [];
   try {
@@ -129,10 +138,30 @@ async function buildSampleManifest() {
   return samples.length;
 }
 
+/*
+ * Die Einkaufsliste. Früher stand im Bibliotheks-Bildschirm eine Zahl von
+ * Hand ("52 Klänge") - die war nach dem ersten Ausdünnen falsch und log dem
+ * Nutzer ein Defizit vor, das es nicht gab. Jetzt zählen die Geschichten
+ * selbst, was sie brauchen.
+ */
+async function buildPalette(wanted) {
+  const names = new Set();
+  for (const name of wanted) {
+    const parts = ZUSAMMENGESETZT[name];
+    if (parts) parts.forEach((p) => names.add(p));
+    else names.add(name);
+  }
+  const list = [...names].sort();
+  await mkdir(SFX, { recursive: true });
+  await writeFile(join(SFX, 'palette.json'), JSON.stringify(list), 'utf8');
+  return list;
+}
+
 const files = (await readdir(SRC)).filter((f) => f.endsWith('.md'));
 await mkdir(OUT, { recursive: true });
 
 const index = [];
+const gebraucht = new Set();
 for (const file of files) {
   const raw = await readFile(join(SRC, file), 'utf8');
   let story;
@@ -145,7 +174,11 @@ for (const file of files) {
   }
 
   const words = story.blocks.flat().filter((i) => i.w).length;
-  const cues = story.blocks.flat().filter((i) => i.c).length;
+  const cueList = story.blocks.flat().map((i) => i.c).filter(Boolean);
+  const cues = cueList.length;
+  for (const c of cueList) {
+    if (c.type !== 'amb-stop') gebraucht.add(c.sound);
+  }
 
   await writeFile(join(OUT, `${story.id}.json`), JSON.stringify(story), 'utf8');
   const { blocks: _blocks, ...meta } = story;
@@ -156,7 +189,9 @@ for (const file of files) {
 index.sort((a, b) => a.title.localeCompare(b.title, 'de'));
 await writeFile(join(OUT, 'index.json'), JSON.stringify(index), 'utf8');
 const sampleCount = await buildSampleManifest();
+const palette = await buildPalette(gebraucht);
 console.log(`\n${index.length} Geschichte(n) gebaut.`);
+console.log(`${palette.length} Klang-Dateien gebraucht.`);
 console.log(sampleCount > 0
-  ? `${sampleCount} Klang-Datei(en) gefunden.`
+  ? `${sampleCount} davon vorhanden.`
   : 'Keine Klang-Dateien in public/sfx/ - die Geschichten laufen stumm.');

@@ -11,7 +11,7 @@ music: hell
 icon: 🥞
 ---
 
-Es waren einmal drei alte Frauen, die wollten sich einen Pfannkuchen backen.{{amb:stube|gain=0.35}} Sie rührten den Teig, gossen ihn in die Pfanne, und bald brutzelte er vor sich hin.{{sfx:brutzeln}}
+Es waren einmal drei alte Frauen, die wollten sich einen Pfannkuchen backen.{{amb:innen|gain=0.35}} Sie rührten den Teig, gossen ihn in die Pfanne, und bald brutzelte er vor sich hin.{{sfx:blubbern}}
 
 „Der wird lecker", sagte die erste Frau.
 
@@ -19,7 +19,7 @@ Der Pfannkuchen aber hörte das und dachte: Moment mal. Aufgegessen werden? Nein
 
 Und da sprang er aus der Pfanne, hüpfte auf den Boden und rollte zur Tür hinaus.{{sfx:rollen}}
 
-„Halt! Bleib hier!", riefen die drei Frauen. Doch der Pfannkuchen rollte immer weiter, den Weg hinunter und aus dem Dorf hinaus.{{amb-stop:stube}}{{amb:bauernhof|gain=0.4}}
+„Halt! Bleib hier!", riefen die drei Frauen. Doch der Pfannkuchen rollte immer weiter, den Weg hinunter und aus dem Dorf hinaus.{{amb-stop:innen}}{{amb:tag|gain=0.4}}
 
 Unterwegs traf er ein Schwein.
 
@@ -39,7 +39,7 @@ Dann traf er ein Schaf.
 
 „Ha!", rief der Pfannkuchen. „Ich bin drei alten Frauen davongerollt, einem Schwein und einer Kuh, da laufe ich dir erst recht davon!" Und weg war er.
 
-So rollte der Pfannkuchen den ganzen Tag, bis er müde wurde. Am Waldrand{{amb-stop:bauernhof}}{{amb:wald_tag|gain=0.4}} saßen drei Kinder auf einem Baumstamm. Sie sahen hungrig aus und hatten nichts zu essen dabei.
+So rollte der Pfannkuchen den ganzen Tag, bis er müde wurde. Am Waldrand{{amb-stop:tag}}{{amb:tag|gain=0.4}} saßen drei Kinder auf einem Baumstamm. Sie sahen hungrig aus und hatten nichts zu essen dabei.
 
 Der Pfannkuchen blieb stehen und schaute sie an.
 

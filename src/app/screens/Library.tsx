@@ -1,15 +1,13 @@
 import { useMemo, useState } from 'react';
 import type { StoryMeta } from '../../engine/types';
+import type { SoundStatus } from '../../engine/story';
 
 interface Props {
   stories: StoryMeta[];
   onOpen: (id: string) => void;
-  /** Wieviele echte Klangaufnahmen liegen bereit. */
-  sampleCount: number;
+  /** Wieviele Aufnahmen bereitliegen, und wieviele gebraucht werden. */
+  sounds: SoundStatus;
 }
-
-/** So viele Klänge und Kulissen brauchen die dreizehn Geschichten zusammen. */
-const SOUNDS_TOTAL = 52;
 
 /**
  * Filter über den Kategorien. Bewusst wenige und grobe: Wer abends mit
@@ -25,7 +23,7 @@ const FILTERS: { label: string; match: (s: StoryMeta) => boolean }[] = [
   { label: 'Zum Einschlafen', match: (s) => s.categories.some((c) => c === 'einschlafen' || c === 'ruhig') },
 ];
 
-export function Library({ stories, onOpen, sampleCount }: Props) {
+export function Library({ stories, onOpen, sounds }: Props) {
   const [filter, setFilter] = useState(0);
 
   const shown = useMemo(() => stories.filter(FILTERS[filter].match), [stories, filter]);
@@ -92,11 +90,11 @@ export function Library({ stories, onOpen, sampleCount }: Props) {
         <p className="library-foot">Hier ist noch nichts. Nimm einen anderen Filter.</p>
       )}
 
-      {sampleCount < SOUNDS_TOTAL && (
+      {sounds.need > 0 && sounds.have < sounds.need && (
         <p className="sound-status">
-          {sampleCount === 0
+          {sounds.have === 0
             ? 'Noch keine Klänge geladen – die Geschichten laufen mit Musik, aber ohne Geräusche.'
-            : `${sampleCount} von ${SOUNDS_TOTAL} Klängen geladen. Wo eine Aufnahme fehlt, bleibt es still.`}
+            : `${sounds.have} von ${sounds.need} Klängen geladen. Wo eine Aufnahme fehlt, bleibt es still.`}
         </p>
       )}
 

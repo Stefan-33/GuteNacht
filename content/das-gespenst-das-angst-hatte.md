@@ -11,7 +11,7 @@ music: nacht
 icon: 👻
 ---
 
-In einem alten Schloss wohnte ein kleines Gespenst.{{amb:schloss|gain=0.4}} Es hieß Fussel, und es war ein richtig gutes Gespenst. Es konnte durch Wände schweben. Es konnte Türen knarren lassen. Es konnte sogar „Huuuu" rufen.{{sfx:gespenst_huu}}
+In einem alten Schloss wohnte ein kleines Gespenst.{{amb:innen|gain=0.4}} Es hieß Fussel, und es war ein richtig gutes Gespenst. Es konnte durch Wände schweben. Es konnte Türen knarren lassen. Es konnte sogar „Huuuu" rufen.{{sfx:gespenst_huu}}
 
 Nur eines konnte Fussel nicht: im Dunkeln sein.
 
@@ -19,7 +19,7 @@ Denn im Dunkeln, fand Fussel, ist es einfach furchtbar dunkel.
 
 Jeden Abend, wenn die Sonne unterging, zog Fussel sich unter sein Bettlaken zurück und machte die kleine Kerze an.
 
-Die anderen Gespenster lachten darüber.{{sfx:lachen}}
+Die anderen Gespenster lachten darüber.
 
 „Ein Gespenst mit Angst im Dunkeln!", riefen sie. „So etwas gibt es doch gar nicht."
 

@@ -11,7 +11,7 @@ music: hell
 icon: 🚂
 ---
 
-Am Rand des Dorfes stand eine kleine blaue Lokomotive.{{amb:nacht_stadt|gain=0.35}} Sie hieß Lotte, und sie war die kleinste im ganzen Bahnhof.
+Am Rand des Dorfes stand eine kleine blaue Lokomotive.{{amb:nacht|gain=0.35}} Sie hieß Lotte, und sie war die kleinste im ganzen Bahnhof.
 
 Die großen Loks fuhren jeden Tag über den Berg. Lotte fuhr nur hin und her, vom Bahnhof zum Schuppen und wieder zurück.
 
@@ -23,7 +23,7 @@ In den Kisten waren Brot, warme Decken und ein Teddybär für ein Kind auf der a
 
 „Dann mache ich das eben", sagte Lotte.
 
-Sie koppelte sich an und setzte sich in Bewegung.{{sfx:zug_dampf}}
+Sie koppelte sich an und setzte sich in Bewegung.{{sfx:pusten}}
 
 Am Anfang ging es leicht. Der Weg war flach, die Räder rollten, und Lotte sang vor sich hin.
 

@@ -7,7 +7,7 @@ führe `npm run content` aus. Fertig.
 > bleibt es still. Lieber Stille als ein schlechter Klang – für Tierstimmen
 > hat die Synthese nie getaugt, und halbgute Geräusche will hier niemand.
 >
-> Die Bibliothek zeigt an, wie viele der 52 Klänge geladen sind. Jede Datei
+> Die Bibliothek zeigt an, wie viele der gebrauchten Klänge geladen sind. Jede Datei
 > wirkt sofort für sich; du musst nicht alles auf einmal besorgen.
 
 Erlaubte Formate: `.mp3`, `.ogg`, `.opus`, `.m4a`, `.wav`, `.webm`

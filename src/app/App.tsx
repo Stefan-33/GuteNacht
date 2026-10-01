@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import { Library } from './screens/Library';
 import { Reader } from './screens/Reader';
-import { loadIndex, loadSampleCount, loadStory } from '../engine/story';
+import { loadIndex, loadSoundStatus, loadStory } from '../engine/story';
+import type { SoundStatus } from '../engine/story';
 import type { Story, StoryMeta } from '../engine/types';
 
 export function App() {
   const [index, setIndex] = useState<StoryMeta[] | null>(null);
   const [story, setStory] = useState<Story | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [samples, setSamples] = useState(0);
+  const [sounds, setSounds] = useState<SoundStatus>({ have: 0, need: 0 });
 
   useEffect(() => {
     loadIndex().then(setIndex).catch((e: Error) => setError(e.message));
-    loadSampleCount().then(setSamples);
+    loadSoundStatus().then(setSounds);
   }, []);
 
   const open = (id: string) => {
@@ -29,5 +30,5 @@ export function App() {
   if (!index) {
     return <div className="center"><p className="muted">Wird geladen…</p></div>;
   }
-  return <Library stories={index} onOpen={open} sampleCount={samples} />;
+  return <Library stories={index} onOpen={open} sounds={sounds} />;
 }

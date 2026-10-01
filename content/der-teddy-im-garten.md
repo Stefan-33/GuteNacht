@@ -11,7 +11,7 @@ music: nacht
 icon: 🧸
 ---
 
-Es war Abend, und der kleine Bär Knopf lag im Gras.{{amb:wald_nacht|gain=0.4}}
+Es war Abend, und der kleine Bär Knopf lag im Gras.{{amb:nacht|gain=0.4}}
 
 Am Nachmittag hatten sie zusammen Picknick gespielt, er und Mia. Dann hatte es zu regnen angefangen, alle waren ins Haus gelaufen — und Knopf war liegen geblieben.
 
@@ -23,7 +23,7 @@ Knopf schaute hinauf. Über ihm standen die Sterne, und der Himmel war so groß,
 
 Ein bisschen Angst hatte er schon.
 
-Da raschelte es neben ihm.{{sfx:raschel_laub}}
+Da raschelte es neben ihm.{{sfx:wind_boe}}
 
 Ein Igel kam zwischen den Blumen hervor, schnupperte an Knopfs Ohr und setzte sich daneben.
 

@@ -11,7 +11,7 @@ music: weltraum
 icon: 🚀
 ---
 
-Paul hatte einen großen Karton gefunden.{{amb:stube|gain=0.3}} Er malte Fenster darauf, klebte Pappflügel an die Seiten und schrieb vorne in großen Buchstaben: RAKETE.
+Paul hatte einen großen Karton gefunden.{{amb:innen|gain=0.3}} Er malte Fenster darauf, klebte Pappflügel an die Seiten und schrieb vorne in großen Buchstaben: RAKETE.
 
 Dann kletterte er hinein.
 
@@ -19,7 +19,7 @@ Dann kletterte er hinein.
 
 „Start!"{{sfx:rakete_start}}
 
-Und plötzlich hob der Karton wirklich ab.{{amb-stop:stube}}{{amb:weltraum|gain=0.4}}
+Und plötzlich hob der Karton wirklich ab.{{amb-stop:innen}}{{amb:nacht|gain=0.4}}
 
 Paul flog an den Wolken vorbei. Er flog an den Vögeln vorbei. Er flog immer weiter hinauf, bis alles ganz still wurde und überall Sterne funkelten.
 
@@ -47,7 +47,7 @@ Der Mond lächelte so breit, dass ein paar Sterne davon heller wurden.
 
 „Danke, Paul. Und jetzt musst du zurück. Es ist Schlafenszeit."
 
-Paul kletterte wieder in seine Rakete.{{sfx:rakete_start|gain=0.7}} Er flog an den Sternen vorbei, an den Vögeln vorbei, an den Wolken vorbei{{amb-stop:weltraum}}{{amb:stube|gain=0.3}} und landete ganz sanft in seinem Kinderzimmer.
+Paul kletterte wieder in seine Rakete.{{sfx:rakete_start|gain=0.7}} Er flog an den Sternen vorbei, an den Vögeln vorbei, an den Wolken vorbei{{amb-stop:nacht}}{{amb:innen|gain=0.3}} und landete ganz sanft in seinem Kinderzimmer.
 
 Paul kletterte aus dem Karton und legte sich ins Bett. Er gähnte.
 

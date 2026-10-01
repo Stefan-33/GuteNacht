@@ -11,7 +11,7 @@ music: hell
 icon: 🐝
 ---
 
-Auf einer Wiese voller Blumen wohnte eine kleine Biene.{{amb:wiese|gain=0.45}} Sie hieß Summ, und sie war zum ersten Mal ganz allein unterwegs.
+Auf einer Wiese voller Blumen wohnte eine kleine Biene.{{amb:tag|gain=0.45}} Sie hieß Summ, und sie war zum ersten Mal ganz allein unterwegs.
 
 „Flieg bis zur roten Mohnblume", hatte ihre Mutter gesagt. „Und dann wieder zurück."
 

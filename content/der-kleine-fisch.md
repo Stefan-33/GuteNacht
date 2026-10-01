@@ -11,7 +11,7 @@ music: meer
 icon: 🐋
 ---
 
-Ganz unten im Meer wohnte ein kleiner blauer Fisch.{{amb:unterwasser|gain=0.45}} Er hieß Flossi, und er war so klein, dass ihn kaum jemand sah.
+Ganz unten im Meer wohnte ein kleiner blauer Fisch.{{amb:wasser|gain=0.45}} Er hieß Flossi, und er war so klein, dass ihn kaum jemand sah.
 
 Flossi liebte es, Blasen zu machen. Wenn er lachte, kamen ganz viele davon.{{sfx:blubbern|gain=0.6}}
 
@@ -53,6 +53,6 @@ Flossi lachte, bis er Seitenstechen bekam.
 
 Von diesem Tag an schwammen die beiden jeden Morgen zusammen hinaus. Der größte Wal im Meer und der kleinste Fisch.
 
-Und wenn oben auf dem Wasser die Möwen kreisten{{sfx:moewe}} und die Sonne unterging, dann machten die beiden gemeinsam die schönsten Blasen von allen.
+Und wenn oben auf dem Wasser die Möwen kreisten und die Sonne unterging, dann machten die beiden gemeinsam die schönsten Blasen von allen.
 
 Gute Nacht.

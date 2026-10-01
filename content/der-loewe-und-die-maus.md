@@ -11,7 +11,7 @@ music: hell
 icon: 🦁
 ---
 
-In der warmen Mittagssonne schlief ein großer Löwe.{{amb:savanne|gain=0.4}} Er lag im Gras und schnarchte leise vor sich hin.{{sfx:schnarchen|gain=0.5}}
+In der warmen Mittagssonne schlief ein großer Löwe.{{amb:tag|gain=0.4}} Er lag im Gras und schnarchte leise vor sich hin.{{sfx:schnarchen|gain=0.5}}
 
 Da kam eine kleine Maus vorbei. Sie sah den Löwen und dachte: So ein weiches Fell! Wie ein Hügel zum Klettern.
 
@@ -37,7 +37,7 @@ Und weit weg, in ihrem kleinen Loch, hörte die Maus das.
 
 Sie lief los, so schnell ihre kurzen Beine sie trugen. Als sie den Löwen sah, sagte sie nur: „Halt still."
 
-Dann fing sie an zu knabbern.{{sfx:knabbern}}
+Dann fing sie an zu knabbern.{{sfx:maus_piep}}
 
 Sie knabberte an einem Seil. Dann am nächsten. Und am nächsten. Ihre Zähne waren winzig, aber sie hörte nicht auf.
 

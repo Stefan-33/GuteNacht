@@ -11,7 +11,7 @@ music: meer
 icon: 🌧️
 ---
 
-Hoch oben am Himmel wohnte eine kleine Wolke.{{amb:wind_hoehe|gain=0.4}} Sie war grau und rund und ziemlich voll mit Regen.
+Hoch oben am Himmel wohnte eine kleine Wolke.{{amb:nacht|gain=0.4}} Sie war grau und rund und ziemlich voll mit Regen.
 
 Aber sie traute sich nicht zu regnen.
 
@@ -39,7 +39,7 @@ In der Ferne grummelte es.{{sfx:donner|gain=0.5}} Eine große dunkle Gewitterwol
 
 „Schau zu, Kleine", sagte die große Wolke. Und dann ließ sie los.
 
-Es blitzte, es donnerte, und der Regen prasselte auf die Erde.{{amb:regen|gain=0.5}}
+Es blitzte, es donnerte, und der Regen prasselte auf die Erde.{{amb:nacht|gain=0.5}}
 
 Die kleine Wolke machte sich ganz klein vor Schreck. So laut wollte sie niemals sein.
 
@@ -55,7 +55,7 @@ Es donnerte nicht. Es blitzte nicht. Es machte nur ganz leise: plipp, plapp, pli
 
 Ein feiner, sanfter Regen fiel auf die Wiese. Kein bisschen laut. Genau richtig.
 
-Als die kleine Wolke fertig war, fühlte sie sich federleicht.{{amb-stop:regen}} Die Sonne kam heraus, und über der Wiese spannte sich ein Regenbogen.
+Als die kleine Wolke fertig war, fühlte sie sich federleicht.{{amb-stop:nacht}} Die Sonne kam heraus, und über der Wiese spannte sich ein Regenbogen.
 
 Unten winkten die Blumen nach oben.
 

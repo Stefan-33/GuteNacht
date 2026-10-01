@@ -11,7 +11,7 @@ music: nacht
 icon: 🚜
 ---
 
-Auf einer Baustelle am Rand der Stadt stand ein kleiner gelber Bagger.{{amb:baustelle|gain=0.35}} Er hieß Bruno, und er liebte seine Arbeit über alles.
+Auf einer Baustelle am Rand der Stadt stand ein kleiner gelber Bagger.{{amb:tag|gain=0.35}} Er hieß Bruno, und er liebte seine Arbeit über alles.
 
 Den ganzen Tag hob er Sand.{{sfx:bagger_motor}} Er hob Steine. Er grub ein tiefes Loch und schüttete es wieder zu, nur so zum Spaß.
 
@@ -23,11 +23,11 @@ Aber Bruno wollte nicht schlafen. „Ich bin überhaupt nicht müde!", brummte e
 
 Der Bauarbeiter lachte, winkte und ging nach Hause.
 
-Nun war Bruno allein auf der Baustelle.{{amb-stop:baustelle}}{{amb:nacht_stadt|gain=0.35}} Der große Kran schlief schon. Die Betonmischer schliefen. Sogar die Schubkarre schlief, umgekippt im Sand.
+Nun war Bruno allein auf der Baustelle.{{amb-stop:tag}}{{amb:nacht|gain=0.35}} Der große Kran schlief schon. Die Betonmischer schliefen. Sogar die Schubkarre schlief, umgekippt im Sand.
 
 „Dann arbeite ich eben allein weiter", sagte Bruno und hob eine Schaufel Sand.
 
-Er kippte den Sand auf einen Haufen.{{sfx:poltern|gain=0.4}} Dann noch eine Schaufel. Und noch eine.
+Er kippte den Sand auf einen Haufen.{{sfx:plumps|gain=0.4}} Dann noch eine Schaufel. Und noch eine.
 
 Aber irgendwie war es nicht dasselbe. Der Sand war kalt. Und niemand schaute zu.
 

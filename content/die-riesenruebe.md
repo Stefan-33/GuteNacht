@@ -11,7 +11,7 @@ music: ruhig
 icon: 🥕
 ---
 
-Ein alter Mann hatte in seinem Garten eine Rübe gepflanzt.{{amb:bauernhof|gain=0.4}} Er goss sie jeden Tag, und die Rübe wuchs. Und wuchs. Und wuchs.
+Ein alter Mann hatte in seinem Garten eine Rübe gepflanzt.{{amb:tag|gain=0.4}} Er goss sie jeden Tag, und die Rübe wuchs. Und wuchs. Und wuchs.
 
 Eines Morgens war sie so groß wie eine Tonne.
 

@@ -11,7 +11,7 @@ music: nacht
 icon: 🐑
 ---
 
-Auf einer Wiese hinter dem Hügel wohnte ein Schaf.{{amb:wald_nacht|gain=0.4}} Es hieß Wolle, und es hatte ein Problem.
+Auf einer Wiese hinter dem Hügel wohnte ein Schaf.{{amb:nacht|gain=0.4}} Es hieß Wolle, und es hatte ein Problem.
 
 Jede Nacht sprangen Schafe über Zäune, damit die Kinder einschlafen können. Das wusste Wolle. Das war die Aufgabe.
 

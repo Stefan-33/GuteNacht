@@ -11,7 +11,7 @@ music: hell
 icon: 🐲
 ---
 
-In einer Höhle am Berg wohnte ein Drache.{{amb:hoehle|gain=0.4}} Er hieß Fips, er war grün, und eigentlich war er ein sehr freundlicher Drache.
+In einer Höhle am Berg wohnte ein Drache.{{amb:innen|gain=0.4}} Er hieß Fips, er war grün, und eigentlich war er ein sehr freundlicher Drache.
 
 Eigentlich.
 
@@ -27,7 +27,7 @@ Hicks! Da brannte der Teppich.
 
 Der Hase kam als Erster vorbei. „Ich weiß, was hilft", sagte er. „Man muss dich erschrecken! Buh!"
 
-Fips schaute ihn an. „Ich bin ein Drache", sagte er. „Vor einem Hasen erschrecke ich nicht." Und dann — hicks!{{sfx:drache_feuer}} — verbrannte dem Hasen fast der Schnurrbart.
+Fips schaute ihn an. „Ich bin ein Drache", sagte er. „Vor einem Hasen erschrecke ich nicht." Und dann — hicks!{{sfx:pusten}} — verbrannte dem Hasen fast der Schnurrbart.
 
 Als Nächstes kam die Eule. „Trink Wasser", sagte sie. „Rückwärts. Aus dem falschen Glasrand."
 

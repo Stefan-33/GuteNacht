@@ -11,7 +11,7 @@ music: wald
 icon: 🐷
 ---
 
-Es waren einmal drei kleine Schweinchen.{{amb:bauernhof|gain=0.4}} Sie waren groß genug geworden, um sich ein eigenes Haus zu bauen.
+Es waren einmal drei kleine Schweinchen.{{amb:tag|gain=0.4}} Sie waren groß genug geworden, um sich ein eigenes Haus zu bauen.
 
 „Ich baue meins aus Stroh", sagte das erste Schweinchen. „Das geht ganz schnell." Und schon war es fertig und rief fröhlich:{{sfx:schwein_grunz}} „Oink! Oink!"
 
@@ -33,7 +33,7 @@ Der Wolf kam hinterher und klopfte. „Kleine Schweinchen, lasst mich hinein!"
 
 „Nein, nein, nein!", riefen die beiden.
 
-„Dann puste ich dieses Haus eben auch um!" Der Wolf holte noch tiefer Luft und blies — und das Holzhaus fiel um.{{sfx:poltern|gain=0.6}}
+„Dann puste ich dieses Haus eben auch um!" Der Wolf holte noch tiefer Luft und blies — und das Holzhaus fiel um.{{sfx:plumps|gain=0.6}}
 
 Die beiden Schweinchen rannten, so schnell sie konnten, zum Steinhaus.
 

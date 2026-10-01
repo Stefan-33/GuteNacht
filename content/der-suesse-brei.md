@@ -11,11 +11,11 @@ music: ruhig
 icon: 🍯
 ---
 
-Es war einmal ein kleines Mädchen, das lebte mit seiner Mutter in einem winzigen Haus.{{amb:stube|gain=0.35}} Die beiden waren arm, und an diesem Tag war überhaupt nichts mehr zu essen da.
+Es war einmal ein kleines Mädchen, das lebte mit seiner Mutter in einem winzigen Haus.{{amb:innen|gain=0.35}} Die beiden waren arm, und an diesem Tag war überhaupt nichts mehr zu essen da.
 
 „Ich gehe in den Wald", sagte das Mädchen. „Vielleicht finde ich ein paar Beeren."
 
-Im Wald war es still.{{amb-stop:stube}}{{amb:wald_tag|gain=0.4}} Nur die Vögel sangen. Da traf das Mädchen eine alte Frau mit einem freundlichen Gesicht.
+Im Wald war es still.{{amb-stop:innen}}{{amb:tag|gain=0.4}} Nur die Vögel sangen. Da traf das Mädchen eine alte Frau mit einem freundlichen Gesicht.
 
 „Du siehst hungrig aus", sagte die alte Frau. „Ich schenke dir etwas." Und sie holte einen kleinen Topf hervor.
 
@@ -23,7 +23,7 @@ Im Wald war es still.{{amb-stop:stube}}{{amb:wald_tag|gain=0.4}} Nur die Vögel 
 
 Das Mädchen bedankte sich und lief nach Hause.
 
-„Schau, Mama!", rief es und stellte den Topf auf den Tisch.{{amb-stop:wald_tag}}{{amb:stube|gain=0.35}} Dann sagte es ganz laut: „Töpfchen, koche!"{{sfx:blubbern}}
+„Schau, Mama!", rief es und stellte den Topf auf den Tisch.{{amb-stop:tag}}{{amb:innen|gain=0.35}} Dann sagte es ganz laut: „Töpfchen, koche!"{{sfx:blubbern}}
 
 Und wirklich — der Topf fing an zu kochen. Süßer, warmer Brei quoll heraus. Die beiden aßen sich satt, und dann sagte das Mädchen: „Töpfchen, steh!" Da wurde es wieder still.
 

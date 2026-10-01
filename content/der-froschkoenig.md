@@ -11,7 +11,7 @@ music: wald
 icon: 🐸
 ---
 
-Eine kleine Prinzessin hatte eine goldene Kugel.{{amb:wald_tag|gain=0.45}} Die war ihr Liebstes auf der Welt. Sie warf sie in die Luft und fing sie wieder, den ganzen Tag lang.
+Eine kleine Prinzessin hatte eine goldene Kugel.{{amb:tag|gain=0.45}} Die war ihr Liebstes auf der Welt. Sie warf sie in die Luft und fing sie wieder, den ganzen Tag lang.
 
 Eines Nachmittags spielte sie am Brunnen im Garten. Sie warf die Kugel hoch — und diesmal fing sie sie nicht.
 

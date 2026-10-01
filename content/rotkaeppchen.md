@@ -11,13 +11,13 @@ music: wald
 icon: 🧺
 ---
 
-Es war einmal ein kleines Mädchen, das trug immer eine rote Mütze.{{amb:stube|gain=0.35}} Darum nannten alle es nur Rotkäppchen.
+Es war einmal ein kleines Mädchen, das trug immer eine rote Mütze.{{amb:innen|gain=0.35}} Darum nannten alle es nur Rotkäppchen.
 
 Eines Morgens packte die Mutter einen Korb. „Die Großmutter ist ein bisschen krank", sagte sie. „Bring ihr Kuchen und Saft. Und bleib auf dem Weg."
 
 „Mach ich", sagte Rotkäppchen und lief los.
 
-Im Wald war es hell und grün.{{amb-stop:stube}}{{amb:wald_tag|gain=0.45}} Die Vögel sangen, und zwischen den Bäumen standen Blumen.
+Im Wald war es hell und grün.{{amb-stop:innen}}{{amb:tag|gain=0.45}} Die Vögel sangen, und zwischen den Bäumen standen Blumen.
 
 Da trat ein Wolf hinter einem Baum hervor und knurrte freundlich.{{sfx:wolf_knurren}}
 
@@ -51,7 +51,7 @@ Dann machte die Großmutter die Tür wieder auf.
 
 „Wisst ihr was", sagte sie. „Es ist genug Kuchen für drei da."
 
-Und so saßen an diesem Morgen ein Mädchen, eine Großmutter und ein ziemlich überraschter Wolf am selben Tisch.{{amb-stop:wald_tag}}{{amb:stube|gain=0.35}}
+Und so saßen an diesem Morgen ein Mädchen, eine Großmutter und ein ziemlich überraschter Wolf am selben Tisch.{{amb-stop:tag}}{{amb:innen|gain=0.35}}
 
 Der Wolf aß vier Stück. Und seitdem klopft er jeden Sonntag an — aber immer mit seiner eigenen Stimme.{{sfx:glitzern|gain=0.5}}
 

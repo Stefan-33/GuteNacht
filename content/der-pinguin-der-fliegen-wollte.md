@@ -11,7 +11,7 @@ music: meer
 icon: 🐧
 ---
 
-Auf einer Eisscholle ganz weit im Süden wohnte ein kleiner Pinguin.{{amb:eis|gain=0.45}} Er hieß Pelle, und er hatte einen Traum.
+Auf einer Eisscholle ganz weit im Süden wohnte ein kleiner Pinguin.{{amb:nacht|gain=0.45}} Er hieß Pelle, und er hatte einen Traum.
 
 Pelle wollte fliegen.
 

@@ -11,7 +11,7 @@ music: nacht
 icon: 🐐
 ---
 
-Eine Geißenmutter hatte sieben kleine Geißlein.{{amb:stube|gain=0.35}} Eines Morgens musste sie in den Wald.
+Eine Geißenmutter hatte sieben kleine Geißlein.{{amb:innen|gain=0.35}} Eines Morgens musste sie in den Wald.
 
 „Passt gut auf", sagte sie. „Und macht niemandem die Tür auf, den ihr nicht kennt."
 
@@ -51,7 +51,7 @@ Sie lächelte und flüsterte: „Alle zusammen. Auf drei."
 
 Und dann machten alle acht den größten Krach, den dieses Haus je gehört hatte.{{sfx:tier_krach}}
 
-Der Wolf sprang aus dem Sessel, stolperte über den Teppich,{{sfx:poltern}} rannte zur Tür hinaus und ist nie wiedergekommen.
+Der Wolf sprang aus dem Sessel, stolperte über den Teppich,{{sfx:plumps}} rannte zur Tür hinaus und ist nie wiedergekommen.
 
 Die Geißlein aber tanzten in der Stube herum, bis sie müde waren.
 

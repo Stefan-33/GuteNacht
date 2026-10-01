@@ -11,7 +11,7 @@ music: nacht
 icon: ⭐
 ---
 
-Es war einmal ein kleines Mädchen, das hatte nichts mehr auf der Welt.{{amb:wald_nacht|gain=0.4}} Nur ein Stück Brot in der Hand und die Kleider, die es anhatte.
+Es war einmal ein kleines Mädchen, das hatte nichts mehr auf der Welt.{{amb:nacht|gain=0.4}} Nur ein Stück Brot in der Hand und die Kleider, die es anhatte.
 
 Aber es hatte ein gutes Herz. Und so ging es einfach los, den Weg entlang, hinaus in den Abend.{{sfx:schritte|gain=0.4}}
 
@@ -39,13 +39,13 @@ Es ging immer weiter in den dunklen Wald hinein, bis der Weg zu Ende war und es 
 
 Über ihm war der ganze Himmel voller Sterne.
 
-Das Mädchen legte den Kopf in den Nacken und schaute hinauf.{{amb-stop:wald_nacht}}{{amb:sternenhimmel|gain=0.4}}
+Das Mädchen legte den Kopf in den Nacken und schaute hinauf.{{amb-stop:nacht}}{{amb:nacht|gain=0.4}}
 
 Und dann geschah etwas Wunderbares.
 
-Ein Stern löste sich vom Himmel und fiel herunter.{{sfx:sternenfall}} Ganz langsam und leuchtend.
+Ein Stern löste sich vom Himmel und fiel herunter.{{sfx:glitzern}} Ganz langsam und leuchtend.
 
-Dann noch einer.{{sfx:sternenfall}} Und noch einer.
+Dann noch einer.{{sfx:glitzern}} Und noch einer.
 
 Und dann fielen die Sterne wie ein leiser, heller Regen um das Mädchen herum.
 

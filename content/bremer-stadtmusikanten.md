@@ -11,11 +11,11 @@ music: wald
 icon: 🐓
 ---
 
-Es war einmal ein Esel, der lebte auf einem Bauernhof.{{amb:bauernhof|gain=0.45}} Viele Jahre lang hatte er schwere Säcke zur Mühle getragen. Doch nun war er alt geworden und sehr müde.
+Es war einmal ein Esel, der lebte auf einem Bauernhof.{{amb:tag|gain=0.45}} Viele Jahre lang hatte er schwere Säcke zur Mühle getragen. Doch nun war er alt geworden und sehr müde.
 
 Da dachte der Esel: Ich gehe nach Bremen. Dort werde ich Stadtmusikant. Und weil er sich so freute, schrie er ganz laut:{{sfx:esel}} „I-A! I-A!"
 
-Er lief den Weg entlang. Nach einer Weile sah er einen alten Hund am Wegrand liegen. Der Hund war traurig und jaulte leise vor sich hin.{{sfx:hund_jaulen}}
+Er lief den Weg entlang. Nach einer Weile sah er einen alten Hund am Wegrand liegen. Der Hund war traurig und jaulte leise vor sich hin.{{sfx:hund_bellen}}
 
 „Warum bist du so traurig?", fragte der Esel.
 
@@ -35,7 +35,7 @@ Nun waren sie schon zu dritt. Sie kamen an einem kleinen Hof vorbei. Dort saß e
 
 „Komm mit nach Bremen", sagte der Esel. „Du hast ja eine wunderbare Stimme!" Der Hahn flatterte herunter. Und nun waren sie zu viert.
 
-Der Weg nach Bremen war weit. Als es dunkel wurde, kamen die vier in einen großen Wald.{{amb-stop:bauernhof}}{{amb:wald_nacht|gain=0.5}} Dort wollten sie schlafen. Doch plötzlich sah die Katze ein kleines Licht zwischen den Bäumen leuchten.
+Der Weg nach Bremen war weit. Als es dunkel wurde, kamen die vier in einen großen Wald.{{amb-stop:tag}}{{amb:nacht|gain=0.5}} Dort wollten sie schlafen. Doch plötzlich sah die Katze ein kleines Licht zwischen den Bäumen leuchten.
 
 „Da vorne ist ein Haus!", rief sie.
 
@@ -51,7 +51,7 @@ Und dann machten alle vier zusammen Musik, so laut sie nur konnten:{{sfx:tier_kr
 
 Die Räuber erschraken ganz furchtbar. Sie sprangen auf und polterten durcheinander. „Ein Gespenst!", riefen sie, rissen die Tür auf und liefen hinaus in den dunklen Wald.
 
-Nun war das Haus leer. Die vier Freunde gingen hinein{{amb-stop:wald_nacht}}{{amb:stube|gain=0.4}} und aßen sich richtig satt. Dann suchte sich jeder ein warmes Plätzchen.
+Nun war das Haus leer. Die vier Freunde gingen hinein{{amb-stop:nacht}}{{amb:innen|gain=0.4}} und aßen sich richtig satt. Dann suchte sich jeder ein warmes Plätzchen.
 
 Der Esel legte sich in den Hof. Der Hund legte sich hinter die Tür. Die Katze rollte sich vor dem Ofen zusammen. Und der Hahn setzte sich ganz oben auf das Dach.
 
