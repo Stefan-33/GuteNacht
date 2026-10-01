@@ -1,0 +1,107 @@
+{
+  "_kommentar": [
+    "Titelbilder der Bibliothek. Ein gemeinsamer Stil, je Geschichte eine Szene",
+    "und eine Farbrichtung; der volle Prompt ist Szene + Farben + Stil.",
+    "Modell: gpt-image-2, aspect_ratio 1:1, resolution 1K, quality medium.",
+    "",
+    "Der Stil sagt ausdrücklich 'full bleed, no paper border'. Die erste Runde",
+    "verlangte 'centred composition with generous margin' - daraufhin hat das",
+    "Modell manchen Bildern einen gemalten Papierrand mit runden Ecken gegeben,",
+    "anderen nicht. Auf den dunklen Karten sah das aus wie ein Versehen.",
+    "scripts/bilder-aufbereiten.mjs schneidet solche Ränder zwar weg, aber",
+    "besser ist, sie gar nicht erst zu malen."
+  ],
+  "stil": "Children's book illustration, gouache on textured paper with visible brush strokes, soft rounded shapes, calm bedtime mood, gentle friendly faces. Full bleed: the painting fills the entire square to all four edges. No paper border, no white frame, no passe-partout, no rounded corners. No text, no lettering, no words, no numbers.",
+  "modell": {
+    "model_id": "gpt-image-2",
+    "aspect_ratio": "1:1",
+    "resolution": "1K",
+    "quality": "medium"
+  },
+  "motive": {
+    "bremer-stadtmusikanten": {
+      "szene": "A donkey, a dog, a cat and a rooster standing one on top of another outside the lit window of a small cottage at night.",
+      "farben": "deep blue night and amber lamplight"
+    },
+    "das-gespenst-das-angst-hatte": {
+      "szene": "A small round friendly ghost peeking out from behind a curtain in a dark attic, holding a tiny candle. Not frightening.",
+      "farben": "deep blue night and amber candlelight"
+    },
+    "das-schaf-das-nicht-zaehlen-konnte": {
+      "szene": "A fluffy white sheep sitting on a grassy hill under a starry sky, looking up thoughtfully at the stars.",
+      "farben": "deep blue night and soft cream wool"
+    },
+    "der-dicke-fette-pfannkuchen": {
+      "szene": "A big round golden pancake with a cheerful face rolling along a country lane past a wooden farm fence, late afternoon.",
+      "farben": "amber and dusty green"
+    },
+    "der-drache-mit-dem-schluckauf": {
+      "szene": "A small plump friendly green dragon with puffed cheeks and a tiny puff of smoke, sitting at the mouth of a cave. Not frightening.",
+      "farben": "mossy green and amber"
+    },
+    "der-froschkoenig": {
+      "szene": "A frog sitting on the stone rim of an old well, holding a shining golden ball, evening light in a garden.",
+      "farben": "deep green and warm gold"
+    },
+    "der-kleine-bagger": {
+      "szene": "A small yellow digger parked on a quiet building site at dusk, one work lamp glowing, sand heaps around it, friendly headlamp eyes.",
+      "farben": "deep blue dusk and warm yellow"
+    },
+    "der-kleine-fisch": {
+      "szene": "A tiny bright little fish swimming beside the enormous gentle head of a whale, deep underwater, shafts of light from above.",
+      "farben": "deep teal and soft gold"
+    },
+    "der-loewe-und-die-maus": {
+      "szene": "A big calm lion lying in tall grass with a tiny mouse standing on his paw, the two looking at each other. Not frightening.",
+      "farben": "golden savanna and dusty ochre"
+    },
+    "der-pinguin-der-fliegen-wollte": {
+      "szene": "A small penguin standing on an ice floe with its flippers spread wide, looking up at seabirds in the sky.",
+      "farben": "pale ice blue and soft apricot sky"
+    },
+    "der-suesse-brei": {
+      "szene": "A small clay pot on a stove in a cosy cottage kitchen, sweet porridge welling up and spilling over the rim onto the floor.",
+      "farben": "cream and amber firelight"
+    },
+    "der-teddy-im-garten": {
+      "szene": "A small teddy bear sitting alone in dewy grass in a garden at night, the moon above, fireflies around.",
+      "farben": "deep blue night and warm honey brown"
+    },
+    "die-biene-die-heimfand": {
+      "szene": "A single bee flying over a meadow of summer flowers towards a small wooden beehive in the distance.",
+      "farben": "meadow green and golden honey"
+    },
+    "die-drei-kleinen-schweinchen": {
+      "szene": "Three little pigs standing happily in front of a small sturdy brick house with a round door.",
+      "farben": "terracotta and soft green"
+    },
+    "die-kleine-lokomotive": {
+      "szene": "A small blue steam locomotive with a friendly face puffing its way up a green hill, a plume of white steam rising.",
+      "farben": "soft blue and meadow green"
+    },
+    "die-regenwolke": {
+      "szene": "A small shy grey rain cloud with a gentle face floating low over a dry thirsty meadow, a few first drops falling.",
+      "farben": "soft grey blue and pale straw"
+    },
+    "die-riesenruebe": {
+      "szene": "An old man, an old woman, a dog, a cat and a little mouse all in a row pulling together on an enormous turnip in a vegetable garden.",
+      "farben": "garden green and warm orange"
+    },
+    "die-sieben-geisslein": {
+      "szene": "Seven little white goat kids peeking out from a cupboard, a wash basket and a tall clock case in a cosy cottage room.",
+      "farben": "warm wood brown and cream"
+    },
+    "paul-fliegt-zum-mond": {
+      "szene": "A small child in a rocket made of cardboard boxes flying past a big friendly moon among stars.",
+      "farben": "deep night blue and warm cream moonlight"
+    },
+    "rotkaeppchen": {
+      "szene": "A little girl in a red hooded cape carrying a covered basket along a woodland path, dappled light through the trees. No wolf.",
+      "farben": "forest green and warm red"
+    },
+    "sterntaler": {
+      "szene": "A small child standing in an open field at night with arms held up, golden coins falling softly from a sky full of stars.",
+      "farben": "deep night blue and warm gold"
+    }
+  }
+}

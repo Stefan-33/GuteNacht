@@ -98,6 +98,27 @@ export async function loadStory(id: string): Promise<Story> {
  * fehlt. Ohne Anzeige würde man rätseln, warum eine Geschichte lautlos
  * durchläuft - deshalb steht die Zahl in der Bibliothek.
  */
+/**
+ * Welche Geschichten ein Titelbild haben. Nicht alle - wo keines vorliegt,
+ * bleibt das Emoji. Eine Liste statt eines Versuchs pro Karte, damit die
+ * Bibliothek keine einundzwanzig 404er auslöst.
+ */
+export async function loadBilder(): Promise<Record<string, string>> {
+  try {
+    const res = await fetch('/bilder/index.json');
+    if (!res.ok) return {};
+    const list: unknown = await res.json();
+    if (!Array.isArray(list)) return {};
+    const map: Record<string, string> = {};
+    for (const e of list as { id?: string; file?: string }[]) {
+      if (e.id && e.file) map[e.id] = `/bilder/${e.file}`;
+    }
+    return map;
+  } catch {
+    return {};
+  }
+}
+
 export interface SoundStatus {
   /** Wieviele Aufnahmen liegen in public/sfx/. */
   have: number;

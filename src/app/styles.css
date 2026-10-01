@@ -181,6 +181,21 @@ button {
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
 
+/*
+ * Titelbild auf der Karte. Feste Kantenlänge und `object-fit: cover`, damit
+ * die Zeile nicht springt, während die Bilder nachladen, und ein Bild mit
+ * anderem Seitenverhältnis nicht verzerrt wird.
+ */
+.story-bild {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  object-fit: cover;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
 .story-body {
   display: grid;
   gap: 4px;

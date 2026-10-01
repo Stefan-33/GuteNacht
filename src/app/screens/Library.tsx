@@ -7,6 +7,8 @@ interface Props {
   onOpen: (id: string) => void;
   /** Wieviele Aufnahmen bereitliegen, und wieviele gebraucht werden. */
   sounds: SoundStatus;
+  /** Titelbild je Geschichte, soweit eines vorliegt. */
+  bilder: Record<string, string>;
 }
 
 /**
@@ -23,7 +25,7 @@ const FILTERS: { label: string; match: (s: StoryMeta) => boolean }[] = [
   { label: 'Zum Einschlafen', match: (s) => s.categories.some((c) => c === 'einschlafen' || c === 'ruhig') },
 ];
 
-export function Library({ stories, onOpen, sounds }: Props) {
+export function Library({ stories, onOpen, sounds, bilder }: Props) {
   const [filter, setFilter] = useState(0);
 
   const shown = useMemo(() => stories.filter(FILTERS[filter].match), [stories, filter]);
@@ -72,7 +74,9 @@ export function Library({ stories, onOpen, sounds }: Props) {
         {shown.map((s) => (
           <li key={s.id}>
             <button className={`story-card m-${s.music}`} onClick={() => onOpen(s.id)}>
-              <span className="story-icon" aria-hidden="true">{s.icon}</span>
+              {bilder[s.id]
+                ? <img className="story-bild" src={bilder[s.id]} alt="" width={512} height={512} loading="lazy" decoding="async" />
+                : <span className="story-icon" aria-hidden="true">{s.icon}</span>}
               <span className="story-body">
                 <span className="story-title">{s.title}</span>
                 {s.subtitle && <span className="story-subtitle">{s.subtitle}</span>}

@@ -15,6 +15,7 @@ import { join } from 'node:path';
 const SRC = 'content';
 const OUT = 'public/stories';
 const SFX = 'public/sfx';
+const BILDER = 'public/bilder';
 
 const MARKER = /\{\{(sfx|amb|amb-stop):([a-zA-Z0-9_]+)((?:\|[a-z]+=[-0-9.]+)*)\}\}/g;
 
@@ -157,6 +158,26 @@ async function buildPalette(wanted) {
   return list;
 }
 
+/*
+ * Titelbilder einsammeln. Es gibt nicht für jede Geschichte eines - wo keines
+ * liegt, zeigt die Bibliothek weiter das Emoji. Das Manifest existiert, damit
+ * die App nicht blind nach einundzwanzig Bildern fragt, von denen drei da sind.
+ */
+async function buildBildManifest() {
+  let entries = [];
+  try {
+    entries = await readdir(BILDER);
+  } catch {
+    return [];
+  }
+  const bilder = entries
+    .filter((f) => /\.(webp|png|jpe?g|avif)$/i.test(f))
+    .map((file) => ({ id: file.replace(/\.[^.]+$/, ''), file }))
+    .sort((a, b) => a.id.localeCompare(b.id));
+  await writeFile(join(BILDER, 'index.json'), JSON.stringify(bilder), 'utf8');
+  return bilder;
+}
+
 const files = (await readdir(SRC)).filter((f) => f.endsWith('.md'));
 await mkdir(OUT, { recursive: true });
 
@@ -190,7 +211,9 @@ index.sort((a, b) => a.title.localeCompare(b.title, 'de'));
 await writeFile(join(OUT, 'index.json'), JSON.stringify(index), 'utf8');
 const sampleCount = await buildSampleManifest();
 const palette = await buildPalette(gebraucht);
+const bilder = await buildBildManifest();
 console.log(`\n${index.length} Geschichte(n) gebaut.`);
+console.log(`${bilder.length} Titelbild(er), ${index.length - bilder.length} Geschichte(n) noch mit Emoji.`);
 console.log(`${palette.length} Klang-Dateien gebraucht.`);
 console.log(sampleCount > 0
   ? `${sampleCount} davon vorhanden.`
