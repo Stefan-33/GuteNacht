@@ -158,5 +158,5 @@ await writeFile(join(OUT, 'index.json'), JSON.stringify(index), 'utf8');
 const sampleCount = await buildSampleManifest();
 console.log(`\n${index.length} Geschichte(n) gebaut.`);
 console.log(sampleCount > 0
-  ? `${sampleCount} echte Klang-Datei(en) gefunden - der Rest bleibt synthetisch.`
-  : 'Keine Klang-Dateien in public/sfx/ - alles synthetisch.');
+  ? `${sampleCount} Klang-Datei(en) gefunden.`
+  : 'Keine Klang-Dateien in public/sfx/ - die Geschichten laufen stumm.');
