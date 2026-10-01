@@ -238,11 +238,28 @@ export class Aligner {
      * der halben Geschichte feuern auf einen Schlag.
      */
     const stretch = Math.max(0, bestQ - this.position - tail.length);
-    const needScore = risky ? RISKY.minScore : this.opts.minScore;
+
+    /*
+     * Je länger wir verloren sind, desto weniger darf die Hürde sein.
+     *
+     * Die strengen Anforderungen für weite Sprünge schützen davor, mitten im
+     * Lesen grundlos wegzuspringen. Wenn der Faden aber längst gerissen ist,
+     * schützen sie nichts mehr - sie verhindern nur noch, dass der Aligner
+     * zurückfindet. In der Messung über fünf Durchläufe je Geschichte
+     * entgleiste fast jede Geschichte gelegentlich und fing sich dann bis
+     * zum Ende nicht mehr.
+     *
+     * Also: Wer schon lange sucht, hat durch einen falschen Sprung wenig zu
+     * verlieren und durch einen richtigen viel zu gewinnen.
+     */
+    const verzweiflung = Math.min(1, Math.max(0, this.misses - this.opts.lostAfter) / 40);
+    const needScore = risky ? RISKY.minScore - 0.25 * verzweiflung : this.opts.minScore;
     const needEvidence = risky
-      ? RISKY.minEvidence
+      ? RISKY.minEvidence - 1.1 * verzweiflung
       : this.opts.minEvidence + stretch * 0.12;
-    const needMargin = risky ? RISKY.minMargin : stretch > 4 ? 1.25 : 0;
+    const needMargin = risky
+      ? Math.max(1, RISKY.minMargin - 0.3 * verzweiflung)
+      : stretch > 4 ? 1.25 : 0;
 
     const accepted =
       bestQ !== this.position &&
