@@ -15,7 +15,7 @@ Es war einmal ein kleines Mädchen, das trug immer eine rote Mütze.{{amb:stube|
 
 Eines Morgens packte die Mutter einen Korb. „Die Großmutter ist ein bisschen krank", sagte sie. „Bring ihr Kuchen und Saft. Und bleib auf dem Weg."
 
-„Mach ich", sagte Rotkäppchen und lief los.{{sfx:schritte|gain=0.45}}
+„Mach ich", sagte Rotkäppchen und lief los.
 
 Im Wald war es hell und grün.{{amb-stop:stube}}{{amb:wald_tag|gain=0.45}} Die Vögel sangen, und zwischen den Bäumen standen Blumen.
 
@@ -43,7 +43,7 @@ Aber die Großmutter war nicht dumm. Sie schaute aus dem Fenster, sah einen pelz
 
 „Du bist kein Rotkäppchen", rief sie. „Du bist ein Wolf! Geh nach Hause und frühstücke bei dir!"
 
-Dem Wolf wurde das zu anstrengend. Er setzte sich vor die Tür und seufzte.{{sfx:gaehnen}}
+Dem Wolf wurde das zu anstrengend. Er setzte sich vor die Tür und seufzte.
 
 Genau da kam Rotkäppchen mit den Blumen um die Ecke. Es sah den Wolf. Der Wolf sah Rotkäppchen. Beide erschraken ein kleines bisschen.
 
@@ -53,6 +53,6 @@ Dann machte die Großmutter die Tür wieder auf.
 
 Und so saßen an diesem Morgen ein Mädchen, eine Großmutter und ein ziemlich überraschter Wolf am selben Tisch.{{amb-stop:wald_tag}}{{amb:stube|gain=0.35}}
 
-Der Wolf aß vier Stück. Und seitdem klopft er jeden Sonntag an{{sfx:klopfen|gain=0.6}} — aber immer mit seiner eigenen Stimme.{{sfx:glitzern|gain=0.5}}
+Der Wolf aß vier Stück. Und seitdem klopft er jeden Sonntag an — aber immer mit seiner eigenen Stimme.{{sfx:glitzern|gain=0.5}}
 
 Gute Nacht.

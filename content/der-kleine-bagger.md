@@ -15,7 +15,7 @@ Auf einer Baustelle am Rand der Stadt stand ein kleiner gelber Bagger.{{amb:baus
 
 Den ganzen Tag hob er Sand.{{sfx:bagger_motor}} Er hob Steine. Er grub ein tiefes Loch und schüttete es wieder zu, nur so zum Spaß.
 
-Am Abend kam der Bauarbeiter und klopfte an Brunos Schaufel.{{sfx:klopfen|gain=0.6}}
+Am Abend kam der Bauarbeiter und klopfte an Brunos Schaufel.
 
 „Feierabend, Bruno. Jetzt wird geschlafen."
 
@@ -25,13 +25,13 @@ Der Bauarbeiter lachte, winkte und ging nach Hause.
 
 Nun war Bruno allein auf der Baustelle.{{amb-stop:baustelle}}{{amb:nacht_stadt|gain=0.35}} Der große Kran schlief schon. Die Betonmischer schliefen. Sogar die Schubkarre schlief, umgekippt im Sand.
 
-„Dann arbeite ich eben allein weiter", sagte Bruno und hob eine Schaufel Sand.{{sfx:bagger_motor}}
+„Dann arbeite ich eben allein weiter", sagte Bruno und hob eine Schaufel Sand.
 
 Er kippte den Sand auf einen Haufen.{{sfx:poltern|gain=0.4}} Dann noch eine Schaufel. Und noch eine.
 
 Aber irgendwie war es nicht dasselbe. Der Sand war kalt. Und niemand schaute zu.
 
-Bruno stellte den Motor ab.{{sfx:bagger_motor|gain=0.4}} Auf einmal war es ganz still.
+Bruno stellte den Motor ab. Auf einmal war es ganz still.
 
 Über ihm ging der Mond auf. Er war rund und gelb, fast so gelb wie Bruno selbst.
 
@@ -41,13 +41,13 @@ Bruno stellte den Motor ab.{{sfx:bagger_motor|gain=0.4}} Auf einmal war es ganz 
 
 „Ach so", sagte der Mond. „Dann schau doch mal, was du heute alles geschafft hast."
 
-Bruno drehte sich langsam um.{{sfx:bagger_motor|gain=0.35}} Da lag das große Loch, das er gegraben hatte. Da lag der Sandhaufen, ordentlich und hoch. Und da lagen die Steine, alle schön aufgereiht.
+Bruno drehte sich langsam um. Da lag das große Loch, das er gegraben hatte. Da lag der Sandhaufen, ordentlich und hoch. Und da lagen die Steine, alle schön aufgereiht.
 
 „Das habe ich gemacht", sagte Bruno leise.
 
 „Ja", sagte der Mond. „Und morgen machst du weiter."
 
-Bruno ließ seine Schaufel ganz langsam auf den Boden sinken.{{sfx:plumps|gain=0.5}} Dann gähnte er.{{sfx:gaehnen}}
+Bruno ließ seine Schaufel ganz langsam auf den Boden sinken. Dann gähnte er.{{sfx:gaehnen}}
 
 „Vielleicht", murmelte er, „bin ich doch ein kleines bisschen müde."
 

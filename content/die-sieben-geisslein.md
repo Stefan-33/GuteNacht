@@ -17,9 +17,9 @@ Eine Geißenmutter hatte sieben kleine Geißlein.{{amb:stube|gain=0.35}} Eines M
 
 „Ja, Mama!", riefen die sieben.{{sfx:schaf_maeh}}
 
-Dann ging sie los.{{sfx:tuer_knarr|gain=0.5}} In der Stube tickte die große Standuhr.{{sfx:uhr_ticken}}
+Dann ging sie los. In der Stube tickte die große Standuhr.
 
-Es dauerte nicht lange, da klopfte es.{{sfx:klopfen}}
+Es dauerte nicht lange, da klopfte es.
 
 „Macht auf, ich bin eure Mutter!", rief eine tiefe, raue Stimme.
 
@@ -35,15 +35,15 @@ Da stand der Wolf.
 
 Und schwupp — verschwanden alle sieben. Eins unter den Tisch. Eins hinter den Ofen. Eins unter das Bett. Eins in den Schrank. Eins hinter den Vorhang. Eins in den Waschkorb. Und das kleinste kletterte in die große Standuhr.{{sfx:uhr_ticken|gain=0.8}}
 
-Der Wolf suchte. Er schaute unter den Tisch — nichts.{{sfx:schritte|gain=0.4}} Er schaute hinter den Ofen — nichts. Er schaute unter das Bett, in den Schrank, hinter den Vorhang.
+Der Wolf suchte. Er schaute unter den Tisch — nichts. Er schaute hinter den Ofen — nichts. Er schaute unter das Bett, in den Schrank, hinter den Vorhang.
 
 Nichts, nichts und nochmal nichts.
 
-Der Wolf suchte und suchte, bis ihm die Beine weh taten. Schließlich setzte er sich in den Sessel am Kamin.{{sfx:feuer_knistern}} „Nur einen kleinen Moment ausruhen", brummte er und gähnte.{{sfx:gaehnen}}
+Der Wolf suchte und suchte, bis ihm die Beine weh taten. Schließlich setzte er sich in den Sessel am Kamin.{{sfx:feuer_knistern}} „Nur einen kleinen Moment ausruhen", brummte er und gähnte.
 
-Und dann schlief er ein und schnarchte, dass die Fenster wackelten.{{sfx:schnarchen}}
+Und dann schlief er ein und schnarchte, dass die Fenster wackelten.
 
-Genau da kam die Geißenmutter nach Hause.{{sfx:tuer_knarr|gain=0.5}} Sie sah den schnarchenden Wolf im Sessel, und dann sah sie sieben Augenpaare aus sieben Verstecken schauen.
+Genau da kam die Geißenmutter nach Hause. Sie sah den schnarchenden Wolf im Sessel, und dann sah sie sieben Augenpaare aus sieben Verstecken schauen.
 
 Sie lächelte und flüsterte: „Alle zusammen. Auf drei."
 
@@ -51,7 +51,7 @@ Sie lächelte und flüsterte: „Alle zusammen. Auf drei."
 
 Und dann machten alle acht den größten Krach, den dieses Haus je gehört hatte.{{sfx:tier_krach}}
 
-Der Wolf sprang aus dem Sessel, stolperte über den Teppich,{{sfx:poltern}} rannte zur Tür hinaus{{sfx:tuer_knarr|gain=0.6}} und ist nie wiedergekommen.
+Der Wolf sprang aus dem Sessel, stolperte über den Teppich,{{sfx:poltern}} rannte zur Tür hinaus und ist nie wiedergekommen.
 
 Die Geißlein aber tanzten in der Stube herum, bis sie müde waren.
 

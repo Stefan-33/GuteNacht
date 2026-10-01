@@ -19,25 +19,25 @@ Der Pfannkuchen aber hörte das und dachte: Moment mal. Aufgegessen werden? Nein
 
 Und da sprang er aus der Pfanne, hüpfte auf den Boden und rollte zur Tür hinaus.{{sfx:rollen}}
 
-„Halt! Bleib hier!", riefen die drei Frauen. Doch der Pfannkuchen rollte immer weiter,{{sfx:rollen|gain=0.7}} den Weg hinunter und aus dem Dorf hinaus.{{amb-stop:stube}}{{amb:bauernhof|gain=0.4}}
+„Halt! Bleib hier!", riefen die drei Frauen. Doch der Pfannkuchen rollte immer weiter, den Weg hinunter und aus dem Dorf hinaus.{{amb-stop:stube}}{{amb:bauernhof|gain=0.4}}
 
 Unterwegs traf er ein Schwein.
 
 „Guten Tag, Pfannkuchen", sagte das Schwein und schnupperte.{{sfx:schwein_grunz}} „Du riechst aber gut. Ich fresse dich auf!"
 
-„Ha!", rief der Pfannkuchen. „Ich bin drei alten Frauen davongerollt, da laufe ich dir erst recht davon!" Und weg war er.{{sfx:rollen}}
+„Ha!", rief der Pfannkuchen. „Ich bin drei alten Frauen davongerollt, da laufe ich dir erst recht davon!" Und weg war er.
 
 Bald traf er eine Kuh.
 
 „Guten Tag, Pfannkuchen", sagte die Kuh und machte:{{sfx:kuh_muh}} „Muuuh! Du siehst lecker aus. Ich fresse dich auf!"
 
-„Ha!", rief der Pfannkuchen. „Ich bin drei alten Frauen davongerollt und einem Schwein, da laufe ich dir erst recht davon!" Und weg war er.{{sfx:rollen}}
+„Ha!", rief der Pfannkuchen. „Ich bin drei alten Frauen davongerollt und einem Schwein, da laufe ich dir erst recht davon!" Und weg war er.
 
 Dann traf er ein Schaf.
 
 „Guten Tag, Pfannkuchen", sagte das Schaf und rief:{{sfx:schaf_maeh}} „Määäh! Ich fresse dich auf!"
 
-„Ha!", rief der Pfannkuchen. „Ich bin drei alten Frauen davongerollt, einem Schwein und einer Kuh, da laufe ich dir erst recht davon!" Und weg war er.{{sfx:rollen|gain=0.8}}
+„Ha!", rief der Pfannkuchen. „Ich bin drei alten Frauen davongerollt, einem Schwein und einer Kuh, da laufe ich dir erst recht davon!" Und weg war er.
 
 So rollte der Pfannkuchen den ganzen Tag, bis er müde wurde. Am Waldrand{{amb-stop:bauernhof}}{{amb:wald_tag|gain=0.4}} saßen drei Kinder auf einem Baumstamm. Sie sahen hungrig aus und hatten nichts zu essen dabei.
 

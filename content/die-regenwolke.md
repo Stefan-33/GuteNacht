@@ -37,7 +37,7 @@ Die Wolke schaute nach unten auf die durstigen Blumen. Und dann wurde ihr ganz e
 
 In der Ferne grummelte es.{{sfx:donner|gain=0.5}} Eine große dunkle Gewitterwolke zog heran.
 
-„Schau zu, Kleine", sagte die große Wolke. Und dann ließ sie los.{{sfx:donner}}
+„Schau zu, Kleine", sagte die große Wolke. Und dann ließ sie los.
 
 Es blitzte, es donnerte, und der Regen prasselte auf die Erde.{{amb:regen|gain=0.5}}
 
@@ -55,7 +55,7 @@ Es donnerte nicht. Es blitzte nicht. Es machte nur ganz leise: plipp, plapp, pli
 
 Ein feiner, sanfter Regen fiel auf die Wiese. Kein bisschen laut. Genau richtig.
 
-Als die kleine Wolke fertig war, fühlte sie sich federleicht.{{amb-stop:regen}} Die Sonne kam heraus, und über der Wiese spannte sich ein Regenbogen.{{sfx:glitzern}}
+Als die kleine Wolke fertig war, fühlte sie sich federleicht.{{amb-stop:regen}} Die Sonne kam heraus, und über der Wiese spannte sich ein Regenbogen.
 
 Unten winkten die Blumen nach oben.
 

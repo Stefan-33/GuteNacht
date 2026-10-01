@@ -19,23 +19,23 @@ Bald traf es einen alten Mann, der am Wegrand saß.
 
 „Ich habe seit gestern nichts gegessen", sagte er leise.
 
-Da gab ihm das Mädchen sein ganzes Stück Brot.{{sfx:glitzern|gain=0.4}}
+Da gab ihm das Mädchen sein ganzes Stück Brot.
 
 Es ging weiter. Der Wind wurde kühler.{{sfx:wind_boe|gain=0.5}}
 
 Dann kam ein Kind, das weinte. „Mir ist so kalt am Kopf."
 
-Das Mädchen nahm seine Mütze ab und setzte sie dem Kind auf.{{sfx:glitzern|gain=0.4}}
+Das Mädchen nahm seine Mütze ab und setzte sie dem Kind auf.
 
 Es ging weiter. Über ihm rief eine Eule.{{sfx:eule_ruf}}
 
 Ein Stück später saß noch ein Kind am Weg und zitterte. „Meine Jacke ist verloren gegangen."
 
-Da zog das Mädchen seine eigene Jacke aus und gab sie her.{{sfx:glitzern|gain=0.4}}
+Da zog das Mädchen seine eigene Jacke aus und gab sie her.
 
 Nun hatte das Mädchen nichts mehr. Keine Mütze, keine Jacke, kein Brot.
 
-Es ging immer weiter in den dunklen Wald hinein,{{sfx:schritte|gain=0.35}} bis der Weg zu Ende war und es auf einer stillen Lichtung stand.
+Es ging immer weiter in den dunklen Wald hinein, bis der Weg zu Ende war und es auf einer stillen Lichtung stand.
 
 Über ihm war der ganze Himmel voller Sterne.
 
@@ -47,7 +47,7 @@ Ein Stern löste sich vom Himmel und fiel herunter.{{sfx:sternenfall}} Ganz lang
 
 Dann noch einer.{{sfx:sternenfall}} Und noch einer.
 
-Und dann fielen die Sterne wie ein leiser, heller Regen um das Mädchen herum.{{sfx:glitzern|gain=0.9}}
+Und dann fielen die Sterne wie ein leiser, heller Regen um das Mädchen herum.
 
 Sie legten sich in seine Hände. Sie legten sich zu seinen Füßen. Sie leuchteten so warm, dass dem Mädchen gar nicht mehr kalt war.
 

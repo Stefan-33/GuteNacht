@@ -11,7 +11,7 @@ music: nacht
 icon: 👻
 ---
 
-In einem alten Schloss wohnte ein kleines Gespenst.{{amb:schloss|gain=0.4}} Es hieß Fussel, und es war ein richtig gutes Gespenst. Es konnte durch Wände schweben. Es konnte Türen knarren lassen.{{sfx:tuer_knarr}} Es konnte sogar „Huuuu" rufen.{{sfx:gespenst_huu}}
+In einem alten Schloss wohnte ein kleines Gespenst.{{amb:schloss|gain=0.4}} Es hieß Fussel, und es war ein richtig gutes Gespenst. Es konnte durch Wände schweben. Es konnte Türen knarren lassen. Es konnte sogar „Huuuu" rufen.{{sfx:gespenst_huu}}
 
 Nur eines konnte Fussel nicht: im Dunkeln sein.
 
@@ -37,7 +37,7 @@ Es nahm die Kerze, atmete tief ein — und schwebte zur Tür hinaus, mitten in d
 
 Sein Herz klopfte furchtbar. Aber es flog weiter.
 
-Durch den langen Gang.{{sfx:schritte|gain=0.35}} Die knarrende Treppe hinunter.{{sfx:tuer_knarr|gain=0.6}} An der großen Uhr vorbei, die so laut tickte.{{sfx:uhr_ticken}} Und zuletzt über die Brücke, bis dort unten die Lichter des Dorfes auftauchten.
+Durch den langen Gang. Die knarrende Treppe hinunter. An der großen Uhr vorbei, die so laut tickte.{{sfx:uhr_ticken}} Und zuletzt über die Brücke, bis dort unten die Lichter des Dorfes auftauchten.
 
 „Da ist unser Haus!", rief das Mädchen.
 

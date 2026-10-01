@@ -115,6 +115,13 @@ Da freute sich die Katze und rief:{{sfx:katze_miau}} „Miau!"
 Lautmalerei-Wort selbst.** „Miau" versteht kein Erkenner zuverlässig, „rief"
 dagegen schon. Dann klingt die Katze genau dann, wenn du sie nachmachst.
 
+**Und setz sparsam: etwa ein Klang je Szene, also alle 35 bis 45 Sekunden.**
+Die erste Fassung hatte alle achtzehn Sekunden ein Geräusch - gedacht als
+Aufmerksamkeitshilfe, tatsächlich Dauerbeschallung. Die Musik trägt die
+Geschichte, der Ton setzt Akzente. `scripts/thin-cues.mjs` dünnt eine zu
+dichte Geschichte nach Unverwechselbarkeit aus: Ein Eselschrei ist der Grund,
+warum man an dieser Stelle zuhört, Schritte sind Füllmaterial.
+
 `npm run content` kompiliert nach `public/stories/`.
 
 ## Prüfstände

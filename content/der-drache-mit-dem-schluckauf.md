@@ -19,9 +19,9 @@ Denn an diesem Morgen war etwas passiert. Fips hatte zu schnell gefrühstückt, 
 
 Das wäre nicht schlimm gewesen. Nur: Wenn ein Drache Schluckauf hat, dann kommt bei jedem Hickser eine kleine Stichflamme heraus.
 
-Hicks!{{sfx:drache_feuer}} Da brannte der Vorhang.
+Hicks! Da brannte der Vorhang.
 
-Hicks!{{sfx:drache_feuer}} Da brannte der Teppich.
+Hicks! Da brannte der Teppich.
 
 „Hilfe!", brummte Fips.{{sfx:drache_brumm}}
 
@@ -29,13 +29,13 @@ Der Hase kam als Erster vorbei. „Ich weiß, was hilft", sagte er. „Man muss 
 
 Fips schaute ihn an. „Ich bin ein Drache", sagte er. „Vor einem Hasen erschrecke ich nicht." Und dann — hicks!{{sfx:drache_feuer}} — verbrannte dem Hasen fast der Schnurrbart.
 
-Als Nächstes kam die Eule.{{sfx:eule_ruf}} „Trink Wasser", sagte sie. „Rückwärts. Aus dem falschen Glasrand."
+Als Nächstes kam die Eule. „Trink Wasser", sagte sie. „Rückwärts. Aus dem falschen Glasrand."
 
-Fips versuchte es. Er trank und trank und trank.{{sfx:wasser_platsch}}
+Fips versuchte es. Er trank und trank und trank.
 
 Dann wartete er.
 
-Hicks!{{sfx:drache_feuer}} Diesmal kam eine Flamme mit Wasserdampf heraus, und das zischte ganz laut.
+Hicks! Diesmal kam eine Flamme mit Wasserdampf heraus, und das zischte ganz laut.
 
 „Es wird schlimmer!", jammerte Fips.{{sfx:drache_brumm}}
 
@@ -67,6 +67,6 @@ Alle warteten. Niemand sagte ein Wort.
 
 Und der Schluckauf war weg.{{sfx:glitzern}}
 
-Fips lachte so laut, dass die ganze Höhle wackelte.{{sfx:drache_brumm|gain=0.8}} Dann lud er alle zum Abendessen ein — und diesmal aß er ganz, ganz langsam.
+Fips lachte so laut, dass die ganze Höhle wackelte. Dann lud er alle zum Abendessen ein — und diesmal aß er ganz, ganz langsam.
 
 Gute Nacht.

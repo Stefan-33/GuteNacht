@@ -21,11 +21,11 @@ Dann kletterte er hinein.
 
 Und plötzlich hob der Karton wirklich ab.{{amb-stop:stube}}{{amb:weltraum|gain=0.4}}
 
-Paul flog an den Wolken vorbei. Er flog an den Vögeln vorbei. Er flog immer weiter hinauf, bis alles ganz still wurde und überall Sterne funkelten.{{sfx:glitzern}}
+Paul flog an den Wolken vorbei. Er flog an den Vögeln vorbei. Er flog immer weiter hinauf, bis alles ganz still wurde und überall Sterne funkelten.
 
 Vor ihm wurde der Mond immer größer und größer. Und dann setzte die Rakete auf.{{sfx:plumps}}
 
-Paul stieg aus. Der Mondstaub war weich und grau, und wenn Paul einen Schritt machte, hüpfte er ganz langsam wieder nach oben.{{sfx:schritte|gain=0.4}}
+Paul stieg aus. Der Mondstaub war weich und grau, und wenn Paul einen Schritt machte, hüpfte er ganz langsam wieder nach oben.
 
 „Hallo?", rief er.
 
@@ -39,17 +39,17 @@ Da bewegte sich etwas. Der Mond selbst öffnete ein Auge.
 
 Das machte Paul ein bisschen traurig. Er überlegte, und dann kramte er in seiner Hosentasche.
 
-Er fand einen Kieselstein, ein Bonbonpapier — und eine kleine Taschenlampe.{{sfx:glitzern|gain=0.6}}
+Er fand einen Kieselstein, ein Bonbonpapier — und eine kleine Taschenlampe.
 
 „Die kannst du haben", sagte Paul. „Dann ist es nicht so dunkel."
 
-Der Mond lächelte so breit, dass ein paar Sterne davon heller wurden.{{sfx:glitzern}}
+Der Mond lächelte so breit, dass ein paar Sterne davon heller wurden.
 
 „Danke, Paul. Und jetzt musst du zurück. Es ist Schlafenszeit."
 
 Paul kletterte wieder in seine Rakete.{{sfx:rakete_start|gain=0.7}} Er flog an den Sternen vorbei, an den Vögeln vorbei, an den Wolken vorbei{{amb-stop:weltraum}}{{amb:stube|gain=0.3}} und landete ganz sanft in seinem Kinderzimmer.
 
-Paul kletterte aus dem Karton und legte sich ins Bett. Er gähnte.{{sfx:gaehnen}}
+Paul kletterte aus dem Karton und legte sich ins Bett. Er gähnte.
 
 Draußen vor dem Fenster schien der Mond.
 

@@ -19,7 +19,7 @@ Aber Wolle konnte nicht zählen.
 
 „Eins", sagte Wolle und sprang über den Zaun.{{sfx:plumps|gain=0.5}}
 
-„Eins", sagte Wolle und sprang noch einmal.{{sfx:plumps|gain=0.5}}
+„Eins", sagte Wolle und sprang noch einmal.
 
 „Eins", sagte Wolle und sprang ein drittes Mal.{{sfx:schaf_maeh|gain=0.6}}
 
@@ -43,7 +43,7 @@ Wolle nickte so heftig, dass die Ohren wackelten.
 
 Also übten die beiden. Der Junge sagte eine Zahl, Wolle sprang.
 
-„Eins!" Sprung.{{sfx:plumps|gain=0.4}}
+„Eins!" Sprung.
 „Zwei!" Sprung.
 „Drei!" Sprung.{{sfx:schaf_maeh|gain=0.5}}
 „Vier!" Sprung.
@@ -53,7 +53,7 @@ Bei acht wurde Wolle langsamer. Bei elf sprang es nur noch halb. Bei vierzehn le
 
 „Fünfzehn", murmelte der Junge und gähnte.{{sfx:gaehnen}}
 
-„Sechzehn", murmelte Wolle und gähnte auch.{{sfx:gaehnen|gain=0.6}}
+„Sechzehn", murmelte Wolle und gähnte auch.
 
 Dann war es still auf der Wiese.
 

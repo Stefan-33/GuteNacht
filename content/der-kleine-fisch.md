@@ -45,7 +45,7 @@ Flossi kam ein kleines Stück hinter der Koralle hervor.
 
 „Dann pass auf." Flossi holte Luft und ließ eine kleine Blase los.{{sfx:blubbern|gain=0.5}}
 
-Der Wal schaute zu. Dann holte er Luft — sehr viel Luft — und blies.{{sfx:blubbern|gain=1}}
+Der Wal schaute zu. Dann holte er Luft — sehr viel Luft — und blies.
 
 Es kamen so viele Blasen, dass das ganze Meer für einen Moment silbrig glitzerte.{{sfx:glitzern}}
 
@@ -53,6 +53,6 @@ Flossi lachte, bis er Seitenstechen bekam.
 
 Von diesem Tag an schwammen die beiden jeden Morgen zusammen hinaus. Der größte Wal im Meer und der kleinste Fisch.
 
-Und wenn oben auf dem Wasser die Möwen kreisten{{sfx:moewe}} und die Sonne unterging, dann machten die beiden gemeinsam die schönsten Blasen von allen.{{sfx:blubbern|gain=0.7}}
+Und wenn oben auf dem Wasser die Möwen kreisten{{sfx:moewe}} und die Sonne unterging, dann machten die beiden gemeinsam die schönsten Blasen von allen.
 
 Gute Nacht.

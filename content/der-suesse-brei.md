@@ -17,11 +17,11 @@ Es war einmal ein kleines Mädchen, das lebte mit seiner Mutter in einem winzige
 
 Im Wald war es still.{{amb-stop:stube}}{{amb:wald_tag|gain=0.4}} Nur die Vögel sangen. Da traf das Mädchen eine alte Frau mit einem freundlichen Gesicht.
 
-„Du siehst hungrig aus", sagte die alte Frau. „Ich schenke dir etwas." Und sie holte einen kleinen Topf hervor.{{sfx:glitzern}}
+„Du siehst hungrig aus", sagte die alte Frau. „Ich schenke dir etwas." Und sie holte einen kleinen Topf hervor.
 
 „Das ist ein Zaubertopf", sagte sie. „Wenn du sagst: Töpfchen, koche! — dann kocht er den süßesten Brei. Und wenn du sagst: Töpfchen, steh! — dann hört er wieder auf. Vergiss das nicht."
 
-Das Mädchen bedankte sich und lief nach Hause.{{sfx:schritte|gain=0.4}}
+Das Mädchen bedankte sich und lief nach Hause.
 
 „Schau, Mama!", rief es und stellte den Topf auf den Tisch.{{amb-stop:wald_tag}}{{amb:stube|gain=0.35}} Dann sagte es ganz laut: „Töpfchen, koche!"{{sfx:blubbern}}
 
@@ -31,9 +31,9 @@ Am nächsten Tag ging das Mädchen zum Spielen hinaus. Die Mutter aber bekam Hun
 
 Der Brei kochte. Die Mutter aß. Und als sie satt war, wollte sie den Topf anhalten. Aber — oje! Sie hatte vergessen, wie es ging.
 
-„Töpfchen, halt! Töpfchen, hör auf! Töpfchen, genug!" Doch der Topf kochte einfach weiter.{{sfx:blubbern|gain=1}}
+„Töpfchen, halt! Töpfchen, hör auf! Töpfchen, genug!" Doch der Topf kochte einfach weiter.
 
-Der Brei lief über den Tisch. Er lief über den Boden. Er lief zur Tür hinaus{{sfx:tuer_knarr|gain=0.5}} und die Straße hinunter, immer weiter, bis das ganze Dorf voller süßem Brei war.{{sfx:poltern|gain=0.5}}
+Der Brei lief über den Tisch. Er lief über den Boden. Er lief zur Tür hinaus{{sfx:tuer_knarr|gain=0.5}} und die Straße hinunter, immer weiter, bis das ganze Dorf voller süßem Brei war.
 
 Die Leute stiegen auf ihre Bänke. Die Katzen kletterten auf die Dächer. Und alle riefen durcheinander.
 

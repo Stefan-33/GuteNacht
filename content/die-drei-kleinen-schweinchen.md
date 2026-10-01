@@ -19,33 +19,33 @@ Es waren einmal drei kleine Schweinchen.{{amb:bauernhof|gain=0.4}} Sie waren gro
 
 Das dritte Schweinchen aber sagte: „Ich baue meins aus Steinen." Die anderen lachten. „Das dauert ja ewig!" Doch das dritte Schweinchen legte Stein auf Stein und arbeitete bis zum Abend.
 
-Am nächsten Morgen kam ein Wolf den Weg entlang.{{sfx:schritte|gain=0.45}} Er hatte Hunger und roch die Schweinchen.
+Am nächsten Morgen kam ein Wolf den Weg entlang. Er hatte Hunger und roch die Schweinchen.
 
-Er klopfte am Strohhaus.{{sfx:klopfen}} „Kleines Schweinchen, lass mich hinein!"
+Er klopfte am Strohhaus. „Kleines Schweinchen, lass mich hinein!"
 
 „Nein, nein, nein!", rief das Schweinchen.
 
-„Dann puste ich dein Haus einfach um!" Der Wolf holte tief Luft und blies,{{sfx:pusten}} so fest er konnte. Und — schwupp — flog das Strohhaus davon.{{sfx:poltern|gain=0.5}}
+„Dann puste ich dein Haus einfach um!" Der Wolf holte tief Luft und blies,{{sfx:pusten}} so fest er konnte. Und — schwupp — flog das Strohhaus davon.
 
 Das erste Schweinchen rannte zum Holzhaus.{{sfx:schritte}}
 
-Der Wolf kam hinterher und klopfte.{{sfx:klopfen}} „Kleine Schweinchen, lasst mich hinein!"
+Der Wolf kam hinterher und klopfte. „Kleine Schweinchen, lasst mich hinein!"
 
 „Nein, nein, nein!", riefen die beiden.
 
-„Dann puste ich dieses Haus eben auch um!" Der Wolf holte noch tiefer Luft und blies{{sfx:pusten}} — und das Holzhaus fiel um.{{sfx:poltern|gain=0.6}}
+„Dann puste ich dieses Haus eben auch um!" Der Wolf holte noch tiefer Luft und blies — und das Holzhaus fiel um.{{sfx:poltern|gain=0.6}}
 
-Die beiden Schweinchen rannten, so schnell sie konnten, zum Steinhaus.{{sfx:schritte}}
+Die beiden Schweinchen rannten, so schnell sie konnten, zum Steinhaus.
 
-Der Wolf klopfte zum dritten Mal.{{sfx:klopfen}} „Kleine Schweinchen, lasst mich hinein!"
+Der Wolf klopfte zum dritten Mal. „Kleine Schweinchen, lasst mich hinein!"
 
 „Nein, nein, nein!", riefen alle drei.
 
-Da holte der Wolf ganz, ganz tief Luft. Er blies{{sfx:pusten|gain=1}} und blies{{sfx:pusten|gain=1}} und blies. Aber das Steinhaus rührte sich nicht.
+Da holte der Wolf ganz, ganz tief Luft. Er blies und blies und blies. Aber das Steinhaus rührte sich nicht.
 
 Der Wolf pustete so lange, bis ihm ganz schwindelig wurde. Er setzte sich hin und schnaufte.{{sfx:gaehnen}}
 
-„Das ist mir zu anstrengend", brummte er. Dann stand er auf und trottete davon,{{sfx:schritte|gain=0.4}} und man hat ihn nie wiedergesehen.
+„Das ist mir zu anstrengend", brummte er. Dann stand er auf und trottete davon, und man hat ihn nie wiedergesehen.
 
 Die drei Schweinchen aber wohnten von da an zusammen im Steinhaus. Sie machten ein Feuer im Kamin,{{sfx:feuer_knistern}} und wenn draußen der Wind blies, dann war ihnen das ganz egal.
 
