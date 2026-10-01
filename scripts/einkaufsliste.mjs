@@ -24,6 +24,13 @@ const GRUPPEN = [
 
 const begriffe = JSON.parse(await readFile('scripts/klang-begriffe.json', 'utf8')).klaenge;
 
+/* Was liegt schon im Ordner? Entscheidet nur den Einleitungstext. */
+let vorhanden = new Set();
+try {
+  const manifest = JSON.parse(await readFile('public/sfx/index.json', 'utf8'));
+  vorhanden = new Set(manifest.map((e) => e.name));
+} catch { /* noch kein Manifest - dann ist nichts da. */ }
+
 /* Zusammengesetzte Klänge: muss mit audio.ts übereinstimmen. */
 const ZUSAMMENGESETZT = {
   tier_krach: ['esel', 'hund_bellen', 'katze_miau', 'hahn_kikeriki'],
@@ -67,14 +74,23 @@ zeilen.push('');
 zeilen.push('<!-- Erzeugt von scripts/einkaufsliste.mjs - nicht von Hand ändern.');
 zeilen.push('     Suchbegriffe pflegst du in scripts/klang-begriffe.json. -->');
 zeilen.push('');
-zeilen.push(`${vorkommen.size} Dateien für ${files.length} Geschichten. Hier ablegen, Namen exakt so`);
-zeilen.push('schreiben, Endung `.mp3` (oder ogg, m4a, wav).');
+const fehlen = [...vorkommen.keys()].filter((n) => !vorhanden.has(n));
+zeilen.push(`${vorkommen.size} Klänge für ${files.length} Geschichten.`);
 zeilen.push('');
-zeilen.push('**Die Synthese ist abgeschaltet.** Wo keine Datei liegt, bleibt es still -');
-zeilen.push('die Geschichte läuft trotzdem, nur mit Musik. Jede Datei wirkt sofort für');
-zeilen.push('sich, die Liste muss nicht komplett werden.');
+if (fehlen.length === 0) {
+  zeilen.push('**Alle liegen im Ordner.** Diese Liste sagt, was wo vorkommt - falls du');
+  zeilen.push('einen Klang austauschen willst, legst du eine Datei mit demselben Namen');
+  zeilen.push('darüber (`.mp3`, `.ogg`, `.m4a` oder `.wav`). Der Suchbegriff hilft beim');
+  zeilen.push('Suchen in einem Klangarchiv.');
+} else {
+  zeilen.push(`Es fehlen noch ${fehlen.length}: ${fehlen.join(', ')}.`);
+  zeilen.push('');
+  zeilen.push('**Die Synthese ist abgeschaltet.** Wo keine Datei liegt, bleibt es still -');
+  zeilen.push('die Geschichte läuft trotzdem, nur mit Musik. Jede Datei wirkt sofort für');
+  zeilen.push('sich, die Liste muss nicht komplett werden.');
+}
 zeilen.push('');
-zeilen.push('Quelle: [pixabay.com/sound-effects](https://pixabay.com/sound-effects/) -');
+zeilen.push('Quelle für Ersatz: [pixabay.com/sound-effects](https://pixabay.com/sound-effects/) -');
 zeilen.push('kein Konto, keine Namensnennung, direkter Download.');
 
 for (const [key, titel, hinweis] of GRUPPEN) {
@@ -87,11 +103,12 @@ for (const [key, titel, hinweis] of GRUPPEN) {
   zeilen.push('');
   zeilen.push(hinweis);
   zeilen.push('');
-  zeilen.push('| Datei | Suchbegriff | Klingt wie | Kommt vor in |');
+  zeilen.push('| Datei | Suchbegriff | Länge | Kommt vor in |');
   zeilen.push('|---|---|---|---|');
   for (const n of namen) {
     const b = begriffe[n];
-    zeilen.push(`| \`${n}.mp3\` | ${b.suche} | ${b.prompt} | ${wo(vorkommen.get(n))} |`);
+    const da = vorhanden.has(n) ? '' : ' **fehlt**';
+    zeilen.push(`| \`${n}.mp3\`${da} | ${b.suche} | ${b.sek} s | ${wo(vorkommen.get(n))} |`);
   }
 }
 

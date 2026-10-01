@@ -1,54 +1,254 @@
 {
   "_kommentar": [
-    "Für jeden Klang: Gruppe, ein Suchbegriff für Klangarchive und ein",
-    "Prompt für die Klangerzeugung. Die Zuordnung zu Geschichten steht NICHT",
-    "hier - die rechnet scripts/einkaufsliste.mjs aus den Geschichten aus,",
-    "damit die Liste nicht wieder veraltet, sobald ein Marker umzieht.",
-    "Sekunden: Zielrichtung für die Länge, keine Vorschrift."
+    "Für jeden Klang: Gruppe, ein Suchbegriff für Klangarchive, der Prompt, mit",
+    "dem die vorliegende Datei erzeugt wurde, und die angestrebte Länge.",
+    "Der Prompt ist der WIRKLICH verwendete - wer eine Datei neu erzeugen will,",
+    "bekommt damit dasselbe wieder. Drei mussten mehrfach erzeugt werden, weil",
+    "die Messung sie verworfen hat; hier steht der Prompt des Treffers.",
+    "Die Zuordnung zu Geschichten steht NICHT hier - die rechnet",
+    "scripts/einkaufsliste.mjs aus den Geschichten aus, damit die Liste nicht",
+    "veraltet, sobald ein Marker umzieht."
   ],
   "klaenge": {
-    "esel": { "gruppe": "tiere", "suche": "donkey bray", "prompt": "a single donkey braying, close, dry recording, no music", "sek": 2 },
-    "hund_bellen": { "gruppe": "tiere", "suche": "dog bark friendly", "prompt": "one friendly medium dog barking twice, dry, no reverb", "sek": 1.5 },
-    "katze_miau": { "gruppe": "tiere", "suche": "cat meow", "prompt": "a soft house cat meowing once, close, gentle", "sek": 1.5 },
-    "hahn_kikeriki": { "gruppe": "tiere", "suche": "rooster crow", "prompt": "a rooster crowing once, clear, farmyard, dry", "sek": 2 },
-    "schwein_grunz": { "gruppe": "tiere", "suche": "pig grunt", "prompt": "a pig grunting and snuffling briefly, close", "sek": 2 },
-    "kuh_muh": { "gruppe": "tiere", "suche": "cow moo", "prompt": "a cow mooing once, calm, meadow, dry", "sek": 2 },
-    "schaf_maeh": { "gruppe": "tiere", "suche": "goat bleat", "prompt": "a goat bleating once, close, dry", "sek": 1.5 },
-    "maus_piep": { "gruppe": "tiere", "suche": "mouse squeak", "prompt": "a tiny mouse squeaking twice, very small and high, close", "sek": 1 },
-    "loewe_bruell": { "gruppe": "tiere", "suche": "lion roar", "prompt": "a lion roaring once, powerful but not frightening, short", "sek": 2.5 },
-    "eule_ruf": { "gruppe": "tiere", "suche": "owl hoot", "prompt": "an owl hooting twice at night, soft, distant", "sek": 2.5 },
-    "wal_ruf": { "gruppe": "tiere", "suche": "whale song", "prompt": "a humpback whale calling underwater, long and gentle", "sek": 4 },
-    "drache_brumm": { "gruppe": "tiere", "suche": "monster growl deep", "prompt": "a big friendly creature rumbling deep in its chest, low, warm, not scary", "sek": 2.5 },
-    "frosch_quak": { "gruppe": "tiere", "suche": "frog croak", "prompt": "a frog croaking twice by a pond, close, dry", "sek": 1.5 },
-    "wolf_knurren": { "gruppe": "tiere", "suche": "wolf growl low", "prompt": "a low short growl, restrained, more grumpy than threatening", "sek": 2 },
-    "summen": { "gruppe": "tiere", "suche": "bee buzzing", "prompt": "a single bee buzzing past, close, soft", "sek": 2.5 },
-    "gespenst_huu": { "gruppe": "tiere", "suche": "cartoon ghost whoo", "prompt": "a playful cartoon ghost saying ooooh, light and funny, not scary", "sek": 2 },
-
-    "gaehnen": { "gruppe": "laute", "suche": "yawn", "prompt": "a sleepy child yawning, soft, close", "sek": 2 },
-    "schnarchen": { "gruppe": "laute", "suche": "snoring", "prompt": "two gentle cartoon snores, soft, close", "sek": 3 },
-    "hau_ruck": { "gruppe": "laute", "suche": "effort grunt pull", "prompt": "a short effort grunt while pulling something heavy", "sek": 1.5 },
-    "schluckauf": { "gruppe": "laute", "suche": "hiccup", "prompt": "two small funny hiccups, close, dry", "sek": 1.5 },
-
-    "schritte": { "gruppe": "geraeusche", "suche": "footsteps walking", "prompt": "four calm footsteps on a wooden floor, dry, close", "sek": 2 },
-    "glitzern": { "gruppe": "geraeusche", "suche": "magic sparkle chime", "prompt": "a soft magical sparkle, light bells shimmering upward, gentle", "sek": 2.5 },
-    "plumps": { "gruppe": "geraeusche", "suche": "soft thud", "prompt": "a soft round thud, something landing on grass", "sek": 1 },
-    "klopfen": { "gruppe": "geraeusche", "suche": "door knock", "prompt": "three knocks on a wooden door, dry, close", "sek": 2 },
-    "tuer_knarr": { "gruppe": "geraeusche", "suche": "creaking door", "prompt": "an old wooden door creaking open slowly", "sek": 2.5 },
-    "wasser_platsch": { "gruppe": "geraeusche", "suche": "water splash", "prompt": "a small splash in water, one stone dropping in", "sek": 1.5 },
-    "blubbern": { "gruppe": "geraeusche", "suche": "bubbling pot", "prompt": "a pot of porridge bubbling gently on the stove", "sek": 3 },
-    "feuer_knistern": { "gruppe": "geraeusche", "suche": "fireplace crackling", "prompt": "a small fire crackling in a fireplace, warm, close", "sek": 3 },
-    "pusten": { "gruppe": "geraeusche", "suche": "strong blow", "prompt": "someone blowing hard once, a big puff of air", "sek": 2 },
-    "wind_boe": { "gruppe": "geraeusche", "suche": "wind gust", "prompt": "a single gust of wind rising and fading", "sek": 3 },
-    "rollen": { "gruppe": "geraeusche", "suche": "rolling wooden ball", "prompt": "something round rolling away fast over a floor", "sek": 2.5 },
-    "uhr_ticken": { "gruppe": "geraeusche", "suche": "clock ticking", "prompt": "an old wall clock ticking slowly, close, dry", "sek": 3 },
-    "donner": { "gruppe": "geraeusche", "suche": "distant thunder", "prompt": "distant soft thunder rolling away, not sharp, not frightening", "sek": 4 },
-    "bagger_motor": { "gruppe": "geraeusche", "suche": "excavator engine", "prompt": "a small digger engine starting up and idling", "sek": 3 },
-    "rakete_start": { "gruppe": "geraeusche", "suche": "rocket launch", "prompt": "a rocket lifting off, rumble building then moving away", "sek": 4 },
-    "zug_pfiff": { "gruppe": "geraeusche", "suche": "steam train whistle", "prompt": "a steam locomotive whistle, two short toots, friendly", "sek": 2.5 },
-
-    "tag": { "gruppe": "kulisse", "suche": "forest meadow birds ambience", "prompt": "a calm sunny outdoor ambience, distant birds, light leaves, seamless loop, no music", "sek": 40 },
-    "nacht": { "gruppe": "kulisse", "suche": "night crickets ambience", "prompt": "a quiet night ambience, faint crickets and a soft breeze, seamless loop, no music", "sek": 40 },
-    "innen": { "gruppe": "kulisse", "suche": "quiet room tone", "prompt": "a quiet warm room tone, barely audible, seamless loop, no music", "sek": 40 },
-    "wasser": { "gruppe": "kulisse", "suche": "underwater ambience", "prompt": "a calm underwater ambience, muffled and round, seamless loop, no music", "sek": 40 }
+    "esel": {
+      "gruppe": "tiere",
+      "suche": "donkey bray",
+      "prompt": "One short friendly hee-haw from a donkey, recorded outdoors on a farm, close microphone, clean and dry with no reverb, no music. Warm and gentle, a contented donkey greeting someone, not strained or distressed. Just one bray, about one second, then silence.",
+      "sek": 2
+    },
+    "hund_bellen": {
+      "gruppe": "tiere",
+      "suche": "dog bark friendly",
+      "prompt": "One friendly medium-sized dog barking twice, recorded outdoors close to the microphone, clean and dry with no reverb, no music. Cheerful and welcoming, not aggressive.",
+      "sek": 1.5
+    },
+    "katze_miau": {
+      "gruppe": "tiere",
+      "suche": "cat meow",
+      "prompt": "A soft house cat meowing once, close, gentle, dry with no reverb, no music.",
+      "sek": 1.5
+    },
+    "hahn_kikeriki": {
+      "gruppe": "tiere",
+      "suche": "rooster crow",
+      "prompt": "A rooster crowing once, clear, farmyard, dry with no reverb, no music.",
+      "sek": 2
+    },
+    "schwein_grunz": {
+      "gruppe": "tiere",
+      "suche": "pig grunt",
+      "prompt": "A pig grunting and snuffling contentedly, recorded close in a barn, clean and dry with no reverb, no music. Round and comical, a happy pig.",
+      "sek": 2
+    },
+    "kuh_muh": {
+      "gruppe": "tiere",
+      "suche": "cow moo",
+      "prompt": "A cow mooing once, calm and low, recorded in a meadow close to the microphone, clean and dry with no reverb, no music.",
+      "sek": 2
+    },
+    "schaf_maeh": {
+      "gruppe": "tiere",
+      "suche": "goat bleat",
+      "prompt": "A goat bleating once, light and a little funny, recorded close outdoors, clean and dry with no reverb, no music.",
+      "sek": 1.5
+    },
+    "maus_piep": {
+      "gruppe": "tiere",
+      "suche": "mouse squeak",
+      "prompt": "A tiny mouse squeaking twice, very small and high, recorded very close, clean and dry with no reverb, no music. Sweet, not shrill.",
+      "sek": 1
+    },
+    "loewe_bruell": {
+      "gruppe": "tiere",
+      "suche": "lion roar",
+      "prompt": "A lion roaring once, deep and powerful but short, recorded outdoors, clean and dry with no reverb, no music. Impressive rather than frightening, suitable for a children's story.",
+      "sek": 2.5
+    },
+    "eule_ruf": {
+      "gruppe": "tiere",
+      "suche": "owl hoot",
+      "prompt": "An owl hooting twice at night, soft and round, recorded at a little distance in a quiet forest, no music. Calm and reassuring.",
+      "sek": 2.5
+    },
+    "wal_ruf": {
+      "gruppe": "tiere",
+      "suche": "whale song",
+      "prompt": "A humpback whale calling underwater, one long gentle song rising and falling, muffled and spacious, no music.",
+      "sek": 4
+    },
+    "drache_brumm": {
+      "gruppe": "tiere",
+      "suche": "monster growl deep",
+      "prompt": "A big friendly creature rumbling deep in its chest, low and warm, like a huge sleepy animal humming, recorded close, no music. Cosy, absolutely not scary.",
+      "sek": 2.5
+    },
+    "frosch_quak": {
+      "gruppe": "tiere",
+      "suche": "frog croak",
+      "prompt": "A frog croaking twice by a pond, recorded close, clean and dry with no reverb, no music. Round and friendly.",
+      "sek": 1.5
+    },
+    "wolf_knurren": {
+      "gruppe": "tiere",
+      "suche": "wolf growl low",
+      "prompt": "A short low growl, restrained and grumpy rather than threatening, recorded close, clean and dry with no reverb, no music. For a wolf in a children's fairy tale, must not frighten a three-year-old.",
+      "sek": 2
+    },
+    "summen": {
+      "gruppe": "tiere",
+      "suche": "bee buzzing",
+      "prompt": "A single bee buzzing past the microphone, soft and light, approaching and moving away, recorded outdoors, no music.",
+      "sek": 2.5
+    },
+    "gespenst_huu": {
+      "gruppe": "tiere",
+      "suche": "cartoon ghost whoo",
+      "prompt": "A playful cartoon ghost going oooooh, light and funny like a child pretending to be a ghost, recorded close, no music. Clearly comical, not frightening at all.",
+      "sek": 2
+    },
+    "gaehnen": {
+      "gruppe": "laute",
+      "suche": "yawn",
+      "prompt": "A sleepy child yawning once, soft and natural, recorded close to the microphone, clean and dry with no reverb, no music.",
+      "sek": 2
+    },
+    "schnarchen": {
+      "gruppe": "laute",
+      "suche": "snoring",
+      "prompt": "Two gentle comical snores, soft and slow, someone fast asleep, recorded close, clean and dry with no reverb, no music.",
+      "sek": 3
+    },
+    "hau_ruck": {
+      "gruppe": "laute",
+      "suche": "effort grunt pull",
+      "prompt": "One short effort grunt from someone pulling hard on something heavy, a hearty heave-ho, recorded close, clean and dry with no reverb, no music.",
+      "sek": 1.5
+    },
+    "schluckauf": {
+      "gruppe": "laute",
+      "suche": "hiccup",
+      "prompt": "Three clear funny hiccups in a row, one after another with only a short gap, loud and close to the microphone, dry with no reverb, no music. The hiccups fill the whole clip, no silence.",
+      "sek": 1.5
+    },
+    "schritte": {
+      "gruppe": "geraeusche",
+      "suche": "footsteps walking",
+      "prompt": "Four calm footsteps on a wooden floor, unhurried, recorded close indoors, clean and dry with no reverb, no music.",
+      "sek": 2
+    },
+    "glitzern": {
+      "gruppe": "geraeusche",
+      "suche": "magic sparkle chime",
+      "prompt": "A soft magical sparkle, delicate bells and glitter shimmering gently upward, warm and dreamy, no music, no melody.",
+      "sek": 2.5
+    },
+    "plumps": {
+      "gruppe": "geraeusche",
+      "suche": "soft thud",
+      "prompt": "Something soft and heavy landing on grass with a round woody thud, then a brief rustle of grass settling. Loud and close to the microphone, dry with no reverb, no music. The sound starts immediately.",
+      "sek": 1
+    },
+    "klopfen": {
+      "gruppe": "geraeusche",
+      "suche": "door knock",
+      "prompt": "Three knocks on a wooden door, friendly and even, recorded close, clean and dry with no reverb, no music.",
+      "sek": 2
+    },
+    "tuer_knarr": {
+      "gruppe": "geraeusche",
+      "suche": "creaking door",
+      "prompt": "An old wooden door creaking slowly open, one long creak, recorded close, clean and dry with no reverb, no music. Clearly audible, cosy old house rather than horror film.",
+      "sek": 2.5
+    },
+    "wasser_platsch": {
+      "gruppe": "geraeusche",
+      "suche": "water splash",
+      "prompt": "A small splash in water, one stone dropping into a pond, recorded close, clean and dry, no music.",
+      "sek": 1.5
+    },
+    "blubbern": {
+      "gruppe": "geraeusche",
+      "suche": "bubbling pot",
+      "prompt": "A pot of thick porridge bubbling gently on the stove, slow fat bubbles, recorded close in a kitchen, no music.",
+      "sek": 3
+    },
+    "feuer_knistern": {
+      "gruppe": "geraeusche",
+      "suche": "fireplace crackling",
+      "prompt": "A small fire crackling in a fireplace, warm pops and snaps, recorded close, no music.",
+      "sek": 3
+    },
+    "pusten": {
+      "gruppe": "geraeusche",
+      "suche": "strong blow",
+      "prompt": "Someone blowing hard once, a single big puff of air straight at the microphone, clean and dry, no music.",
+      "sek": 2
+    },
+    "wind_boe": {
+      "gruppe": "geraeusche",
+      "suche": "wind gust",
+      "prompt": "A single gust of wind rising and fading away, soft and round, recorded outdoors, no music, no howling.",
+      "sek": 3
+    },
+    "rollen": {
+      "gruppe": "geraeusche",
+      "suche": "rolling wooden ball",
+      "prompt": "A large round pancake rolling fast across a wooden floor, loud and close, a rumbling wooden roll, dry with no reverb, no music. Full and clearly audible throughout.",
+      "sek": 2.5
+    },
+    "uhr_ticken": {
+      "gruppe": "geraeusche",
+      "suche": "clock ticking",
+      "prompt": "An old wall clock ticking slowly and steadily, recorded close in a quiet room, clean and dry, no music, no chimes.",
+      "sek": 3
+    },
+    "donner": {
+      "gruppe": "geraeusche",
+      "suche": "distant thunder",
+      "prompt": "Distant soft thunder rolling slowly away, low and round with no sharp crack, no music. Gentle enough for a small child.",
+      "sek": 4
+    },
+    "bagger_motor": {
+      "gruppe": "geraeusche",
+      "suche": "excavator engine",
+      "prompt": "A small digger engine starting up and settling into an idle, friendly diesel chug, recorded outdoors, no music.",
+      "sek": 3
+    },
+    "rakete_start": {
+      "gruppe": "geraeusche",
+      "suche": "rocket launch",
+      "prompt": "A rocket lifting off, deep rumble building up and then moving away into the distance, no music, no voices.",
+      "sek": 4
+    },
+    "zug_pfiff": {
+      "gruppe": "geraeusche",
+      "suche": "steam train whistle",
+      "prompt": "A steam locomotive whistle, two short friendly toots, recorded outdoors at a little distance, no music.",
+      "sek": 2.5
+    },
+    "tag": {
+      "gruppe": "kulisse",
+      "suche": "forest meadow birds ambience",
+      "prompt": "A calm sunny meadow atmosphere, clearly present and audible: small birds singing in the distance, a light breeze moving through leaves and grass. Even and continuous from start to finish, no music, no voices, no sudden sounds.",
+      "sek": 40
+    },
+    "nacht": {
+      "gruppe": "kulisse",
+      "suche": "night crickets ambience",
+      "prompt": "Loud close summer night field recording: a dense chorus of crickets chirping continuously, right next to the microphone, full and strong throughout. Continuous from the first instant to the last, no music, no voices.",
+      "sek": 40
+    },
+    "innen": {
+      "gruppe": "kulisse",
+      "suche": "quiet room tone",
+      "prompt": "Loud close room ambience inside an old wooden cottage: a steady airy hiss of a draught, faint settling creaks of wood, full and strong throughout. Continuous from the first instant to the last, no music, no voices.",
+      "sek": 40
+    },
+    "wasser": {
+      "gruppe": "kulisse",
+      "suche": "underwater ambience",
+      "prompt": "A calm underwater ambience, muffled and round, slow deep water with a few distant soft bubbles. Even background atmosphere, no music, no whale calls, no sudden sounds.",
+      "sek": 40
+    }
   }
 }

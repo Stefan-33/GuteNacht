@@ -1,14 +1,27 @@
 # Echte Klänge einsetzen
 
-Leg eine Audiodatei in dieses Verzeichnis, benenne sie nach dem Klang, und
-führe `npm run content` aus. Fertig.
+Alle vierzig Klänge liegen hier. Willst du einen austauschen, leg eine
+Audiodatei mit demselben Namen darüber und führe `npm run content` aus.
 
 > **Die synthetischen Klänge sind abgeschaltet.** Wo keine Aufnahme liegt,
 > bleibt es still. Lieber Stille als ein schlechter Klang – für Tierstimmen
 > hat die Synthese nie getaugt, und halbgute Geräusche will hier niemand.
 >
-> Die Bibliothek zeigt an, wie viele der gebrauchten Klänge geladen sind. Jede Datei
-> wirkt sofort für sich; du musst nicht alles auf einmal besorgen.
+> Die Bibliothek zeigt an, wie viele der gebrauchten Klänge geladen sind. Jede
+> Datei wirkt sofort für sich.
+
+## Wie die vorliegenden Dateien entstanden sind
+
+Erzeugt, nicht synthetisiert: `scripts/klang-begriffe.json` enthält für jeden
+Klang den Prompt, mit dem die Datei entstanden ist, dann hat
+`scripts/klaenge-aufbereiten.mjs` sie beschnitten und im Pegel abgeglichen.
+
+Das Aufbereiten ist nicht Kosmetik. Es hat gefunden, was man beim Hören
+übersieht: sieben Dateien hatten Stille am Anfang (das Klopfen 371 ms, der
+Schluckauf 446 ms) und wären hörbar zu spät gekommen. Drei weitere kamen so
+leise aus der Erzeugung, dass ein Pegelabgleich nur ihr Rauschen verstärkt
+hätte – die wurden neu erzeugt, nicht geschönt. Wer Dateien ersetzt, lässt das
+Skript danach laufen.
 
 Erlaubte Formate: `.mp3`, `.ogg`, `.opus`, `.m4a`, `.wav`, `.webm`
 
